@@ -83,7 +83,7 @@ main {
   background: none;
 }
 .media-pair > * { aspect-ratio: 4 / 5; width: 100%; height: 100%; object-fit: cover; background: var(--surface); }
-.media-dark { background: #181715; display: grid; place-items: center; padding: clamp(16px, 4vw, 48px); }
+.media-dark { background: #f2f3f0; display: grid; place-items: center; padding: clamp(16px, 4vw, 48px); }
 .media-dark img { width: min(100%, 760px); }
 
 .project-text {
