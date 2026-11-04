@@ -1,0 +1,68 @@
+/* The Life OS project page. Builds on styles.css (same palette and type). */
+
+.intro h1 { letter-spacing: -0.05em; }
+.lo-shot { margin: 0; }
+.lo-shot img { width: 100%; }
+
+.lo-section { padding: clamp(64px, 9vw, 120px) 0 0; }
+.lo-section h2 {
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+}
+.lo-section h3 { font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+.lo-lead { max-width: 58ch; margin-bottom: 28px; color: var(--muted); }
+
+/* What it does */
+.lo-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px clamp(24px, 4vw, 56px); margin: 0; }
+.lo-facts div { border-top: 1px solid #3a3a38; padding-top: 16px; }
+.lo-facts dt { font-weight: 600; margin-bottom: 6px; }
+.lo-facts dd { margin: 0; color: var(--muted); }
+
+/* The briefing: a transcript that highlights what's being read */
+.lo-brief { background: var(--surface); padding: clamp(24px, 4vw, 48px); }
+.lo-play {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  margin-bottom: 28px;
+  padding: 0 24px;
+  border: 0;
+  background: var(--accent);
+  color: var(--bg);
+  font: 600 1.0625rem var(--face);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.lo-play:hover { background: #a3b9a2; }
+.lo-transcript { max-width: 62ch; font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); line-height: 1.45; letter-spacing: -0.01em; }
+.lo-transcript p + p { margin-top: 14px; }
+.lo-transcript p { transition: color 0.3s; }
+.lo-transcript:has(.is-reading) p { color: var(--muted); }
+.lo-transcript p.is-reading { color: var(--ink); }
+
+/* How it works: two rows of boxes and arrows */
+.lo-flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: stretch; gap: 12px; }
+.lo-flow-2 { margin-top: 12px; }
+.lo-node { background: var(--surface); padding: 20px 22px; }
+.lo-node p { color: var(--muted); font-size: 1rem; }
+.lo-node-quiet { background: none; border: 1px dashed #4a4a47; }
+.lo-arrow { display: grid; place-items: center; color: var(--accent); font-size: 1.5rem; }
+
+/* Problems */
+.lo-problems { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px clamp(32px, 5vw, 72px); }
+.lo-problems p { max-width: 56ch; }
+
+.lo-stack { padding-bottom: clamp(80px, 10vw, 140px); }
+.lo-stack p { max-width: 62ch; }
+.lo-stack .links { margin-top: 24px; }
+
+@media (max-width: 900px) {
+  .lo-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .lo-facts, .lo-problems { grid-template-columns: 1fr; }
+  .lo-flow { grid-template-columns: 1fr; }
+  .lo-arrow { transform: rotate(90deg); padding: 2px 0; }
+}

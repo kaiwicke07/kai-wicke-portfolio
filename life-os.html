@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life OS · Kai Wicke</title>
+    <meta name="description" content="A personal dashboard that opens at login, sorts my email by importance and reads me my day through Siri, even when my computer is off." />
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta property="og:title" content="Life OS · Kai Wicke" />
+    <meta property="og:description" content="A personal dashboard that reads me my day through Siri." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/assets/life-os.jpg" />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="life-os.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="bar-name" href="/">Kai Wicke</a>
+      <nav class="bar-links" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="#briefing">Hear it</a>
+        <a href="#how">How it works</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="intro">
+        <h1>Life OS</h1>
+        <p>A dashboard for my whole day that opens when I log in, and reads it to me through Siri in the morning.</p>
+        <p class="intro-note">Built in 2026 for myself, and I use it every day. The screenshot and the sample briefing use made-up data.</p>
+      </section>
+
+      <figure class="lo-shot">
+        <img src="assets/life-os.jpg" alt="Life OS with sample data: a greeting and the time over a sky-coloured band, then tasks with due dates, a timeline of the day's classes with free gaps, and an inbox sorted into Needs you, Worth a look and Later" width="2880" height="1800" />
+      </figure>
+
+      <section class="lo-section" aria-labelledby="does-title">
+        <h2 id="does-title">What it does</h2>
+        <dl class="lo-facts">
+          <div><dt>My day</dt><dd>My classes, the gym split and calendar events on a timeline with a line for now and the free gaps in between.</dd></div>
+          <div><dt>Tasks</dt><dd>Read from and written to my Obsidian notes. Typing &ldquo;lab report friday&rdquo; adds a task due Friday.</dd></div>
+          <div><dt>Canvas</dt><dd>Every assignment and quiz due in the next two weeks, with a reminder before each one.</dd></div>
+          <div><dt>Email</dt><dd>Unread Gmail sorted into Needs you, Worth a look and Later, with the reasons for each email&rsquo;s place.</dd></div>
+          <div><dt>Habits and focus</dt><dd>A focus timer that logs study sessions and keeps a streak going.</dd></div>
+          <div><dt>Weather and news</dt><dd>The week&rsquo;s forecast, and headlines from Boston, Northeastern, tech and golf.</dd></div>
+        </dl>
+      </section>
+
+      <section class="lo-section" id="briefing" aria-labelledby="briefing-title">
+        <h2 id="briefing-title">The morning briefing</h2>
+        <p class="lo-lead">I say &ldquo;Hey Siri, Hello Life OS&rdquo; and my phone reads me my day. This is the same briefing with sample classes, email and tasks. The weather and headlines are live.</p>
+        <div class="lo-brief">
+          <button type="button" class="lo-play" id="play" hidden>Play the sample briefing</button>
+          <div class="lo-transcript" id="transcript" aria-live="polite">
+            <p>Good morning, Kai. It&rsquo;s Thursday, November 5, 8:05 AM.</p>
+            <p>In Boston, it&rsquo;s 52 degrees and partly cloudy, with a high of 61 and a low of 45.</p>
+            <p>You have 2 things on your calendar: Calculus at 9:15 AM and Physics lab at 11:15 AM. The first one starts in 1 hour and 10 minutes.</p>
+            <p>At the gym, it&rsquo;s anterior day.</p>
+            <p>On Canvas, Lab 4 report is due tomorrow at 11:59 PM and Problem set 7 is due on Saturday at 11:59 AM.</p>
+            <p>You have 3 open tasks. Due today: Email the co-op office back.</p>
+            <p>In your inbox, one email needs you: Professor Smith about the Lab 4 deadline.</p>
+            <p>Your Study streak is at 4 days. One session today keeps it going.</p>
+            <p>That&rsquo;s your briefing. Have a good one.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="lo-section" id="how" aria-labelledby="how-title">
+        <h2 id="how-title">How it works</h2>
+        <div class="lo-flow" role="img" aria-label="Gmail, Canvas, the class schedule, Obsidian, weather and news feed a server on my PC, which runs the dashboard and uploads tasks to a cloud function that Siri calls">
+          <div class="lo-node">
+            <h3>Sources</h3>
+            <p>Gmail over IMAP, the Canvas API, my class sections from Northeastern&rsquo;s class search, my Obsidian vault, Open-Meteo weather, RSS news</p>
+          </div>
+          <div class="lo-arrow" aria-hidden="true">&rarr;</div>
+          <div class="lo-node">
+            <h3>My PC</h3>
+            <p>A small Node.js server, started at login. It only answers this computer and keeps every password on it.</p>
+          </div>
+          <div class="lo-arrow" aria-hidden="true">&rarr;</div>
+          <div class="lo-node">
+            <h3>Dashboard</h3>
+            <p>Opens in its own Chrome window when I log in</p>
+          </div>
+        </div>
+        <div class="lo-flow lo-flow-2" aria-hidden="true">
+          <div class="lo-node lo-node-quiet">
+            <h3>Every 5 minutes</h3>
+            <p>The PC uploads my tasks, habits and class schedule</p>
+          </div>
+          <div class="lo-arrow">&rarr;</div>
+          <div class="lo-node">
+            <h3>Vercel</h3>
+            <p>A serverless function and private storage. It fetches mail, Canvas, weather and news itself, and writes the briefing.</p>
+          </div>
+          <div class="lo-arrow">&rarr;</div>
+          <div class="lo-node">
+            <h3>Siri</h3>
+            <p>A Shortcut fetches the text and speaks it</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="lo-section" aria-labelledby="problems-title">
+        <h2 id="problems-title">Problems I had to solve</h2>
+        <div class="lo-problems">
+          <article>
+            <h3>45,000 unread emails</h3>
+            <p>Gmail&rsquo;s own &ldquo;important&rdquo; label wasn&rsquo;t enough. Each email gets a score: up for people I&rsquo;ve written to, Northeastern addresses and words like &ldquo;deadline&rdquo; or &ldquo;interview&rdquo;, down for promotions, no-reply senders and newsletters. Only the last 14 days are sorted, and each panel loads on its own, so a slow inbox doesn&rsquo;t hold up the rest.</p>
+          </article>
+          <article>
+            <h3>A briefing with the computer off</h3>
+            <p>At first the phone had to reach my PC, which only worked on home Wi-Fi with the PC on. Now the briefing runs on Vercel. My tasks only live on the PC, so it uploads them while it&rsquo;s on, and the cloud works out today&rsquo;s classes and gym day by itself. A cloud function runs on UTC, so the times were five hours off until I set it to Boston time.</p>
+          </article>
+          <article>
+            <h3>My class schedule</h3>
+            <p>Canvas knows my courses but not when they meet. Life OS takes the section numbers from Canvas, looks up the meeting times and rooms in Northeastern&rsquo;s public class search, and turns them into a weekly schedule with finals.</p>
+          </article>
+          <article>
+            <h3>Keeping it private</h3>
+            <p>The PC server only answers this computer. The cloud briefing needs a private key, the passwords are encrypted secrets, and the uploaded tasks go to private storage. The demo mode on this page swaps in made-up data, so it can be shown without showing my life.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="lo-section lo-stack" aria-labelledby="stack-title">
+        <h2 id="stack-title">Built with</h2>
+        <p>Node.js with no web framework, plain HTML, CSS and JavaScript, Vercel Functions and Blob storage, ImapFlow, node-ical, Siri Shortcuts and the Web Speech API.</p>
+        <p class="links"><a href="/#work">Back to all projects</a></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <h2>Contact</h2>
+      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com">Kaiwicke07@gmail.com</a></p>
+      <p class="footer-small">Kai Wicke · Boston, MA · &copy; 2026</p>
+    </footer>
+
+    <script>
+      // The sample briefing: fetched live (real weather and headlines, made-up everything else) and read aloud.
+      const play = document.getElementById("play")
+      const box = document.getElementById("transcript")
+      if ("speechSynthesis" in window) play.hidden = false
+      let speaking = false
+      const stop = () => {
+        speechSynthesis.cancel()
+        speaking = false
+        play.textContent = "Play the sample briefing"
+        box.querySelectorAll(".is-reading").forEach((p) => p.classList.remove("is-reading"))
+      }
+      play.addEventListener("click", async () => {
+        if (speaking) return stop()
+        play.textContent = "Getting today's weather…"
+        let text = [...box.querySelectorAll("p")].map((p) => p.textContent).join("\n\n")
+        try {
+          const res = await fetch("https://life-os-brief.vercel.app/brief?demo", { signal: AbortSignal.timeout(15000) })
+          if (res.ok) text = await res.text()
+        } catch {}
+        const paragraphs = text.split(/\n\n+/)
+        box.replaceChildren(...paragraphs.map((t) => Object.assign(document.createElement("p"), { textContent: t })))
+        const voices = speechSynthesis.getVoices()
+        const voice = voices.find((v) => /natural|samantha|google us english/i.test(v.name) && v.lang.startsWith("en")) ?? voices.find((v) => v.lang === "en-US")
+        speaking = true
+        play.textContent = "Stop"
+        paragraphs.forEach((t, i) => {
+          const u = new SpeechSynthesisUtterance(t)
+          if (voice) u.voice = voice
+          u.onstart = () => {
+            box.querySelectorAll(".is-reading").forEach((p) => p.classList.remove("is-reading"))
+            box.children[i].classList.add("is-reading")
+          }
+          if (i === paragraphs.length - 1) u.onend = stop
+          speechSynthesis.speak(u)
+        })
+      })
+      if ("speechSynthesis" in window) speechSynthesis.getVoices()
+    </script>
+  </body>
+</html>
