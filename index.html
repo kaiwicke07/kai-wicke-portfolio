@@ -1,156 +1,151 @@
-import Navigation from "@/components/Navigation";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kai Wicke, Mechanical Engineering at Northeastern</title>
+    <meta name="description" content="Kai Wicke, Mechanical Engineering student at Northeastern. Robots, tools and software I've built." />
+    <meta name="theme-color" content="#1c1c1c" />
 
-/**
- * Design Philosophy: Modern Minimalist Engineering
- * Contact page with form and social links
- */
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+    <meta property="og:title" content="Kai Wicke" />
+    <meta property="og:description" content="Mechanical Engineering student at Northeastern. Robots, tools and software I've built." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
-  };
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="bar-name" href="#top">Kai Wicke</a>
+      <nav class="bar-links" aria-label="Main">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="Kai_Wicke_CV.pdf" download>CV</a>
+        <a href="mailto:Kaiwicke07@gmail.com">Email</a>
+      </nav>
+    </header>
 
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navigation />
-      
-      <section className="container mx-auto px-4 py-20">
-        <h1 className="text-4xl md:text-5xl font-bold mb-12" style={{ fontFamily: "'Poppins', sans-serif" }}>
-          Get in Touch
-        </h1>
+    <main id="top">
+      <section class="intro">
+        <h1>Kai Wicke</h1>
+        <p>Mechanical Engineering student at Northeastern. I build robots and software.</p>
+        <p class="intro-note">Looking for a co-op for Fall 2026.</p>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
-          {/* Contact Form */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-6 text-primary" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              Send me a message
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-primary transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-primary transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full bg-card border border-border rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                  placeholder="Your message..."
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                Send Message
-              </Button>
-            </form>
+      <section id="work" aria-labelledby="work-title">
+        <h2 class="visually-hidden" id="work-title">Work</h2>
+
+        <article class="project">
+          <div class="media media-pair">
+            <video src="assets/focusfinder.mp4" poster="assets/focusfinder-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of FocusFinder following a person with its eyes"></video>
+            <img src="assets/focusfinder.jpg" alt="FocusFinder on a desk: a white box with a small black OLED screen and a green LED" width="576" height="1024" loading="lazy" />
           </div>
-
-          {/* Contact Info */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-6 text-primary" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              Connect with me
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                  Email
-                </h3>
-                <a
-                  href="mailto:Kaiwicke07@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-colors break-all"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Kaiwicke07@gmail.com
-                </a>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                  Phone
-                </h3>
-                <a
-                  href="tel:+15108289906"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  +1 (510) 828-9906
-                </a>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-3" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                  Social Links
-                </h3>
-                <div className="space-y-2">
-                  <a
-                    href="https://www.linkedin.com/in/kai-wicke-a1b4a2383/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    LinkedIn →
-                  </a>
-                  <a
-                    href="https://github.com/kaiwicke07"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    GitHub →
-                  </a>
-                </div>
-              </div>
+          <div class="project-text">
+            <h3>FocusFinder <span>2026</span></h3>
+            <div>
+              <p>A desk robot that notices when you stop paying attention. A Raspberry Pi Zero 2W runs OpenCV face detection, and a pair of animated eyes on a transparent OLED follows you. If you look away for too long, a Pico turns on an LED and a buzzer.</p>
+              <p class="stack">Raspberry Pi, OpenCV, MicroPython</p>
             </div>
           </div>
+        </article>
+
+        <article class="project">
+          <div class="media">
+            <img src="assets/chess-coach.jpg" alt="chess.ai: the coach stops the move Ba6 and explains that it loses the bishop to Nxa6" width="2560" height="1720" loading="lazy" />
+          </div>
+          <div class="project-text">
+            <h3>chess.ai <span>2026</span></h3>
+            <div>
+              <p>A chess trainer. It pulls your games from Lichess or Chess.com, analyses them with Stockfish in the browser, and turns your mistakes into puzzles. You can also play bots rated about 400 to 2400 with a coach that stops you after a bad move and shows the line that punishes it.</p>
+              <p class="stack">Next.js, TypeScript, Stockfish</p>
+              <p class="links">
+                <a href="https://chess-ai-nu.vercel.app" target="_blank" rel="noopener">Live site</a>
+                <a href="https://github.com/kaiwicke07/chess-ai" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="media media-dark">
+            <img src="assets/fea-bracket.jpg" alt="Von Mises stress in an L-bracket bolted at two holes, highest at the inside corner" width="1528" height="1358" loading="lazy" />
+          </div>
+          <div class="project-text">
+            <h3>Plane Stress FEA <span>2026</span></h3>
+            <div>
+              <p>A 2D finite element solver I wrote from scratch in TypeScript, without FEA or linear algebra libraries: meshing, 3- and 6-node triangle elements, a conjugate-gradient solver and stress recovery. You draw a part, add supports and loads, and it shows the stress. The results are checked against the Kirsch and Timoshenko solutions.</p>
+              <p class="stack">TypeScript, WebGL, finite element methods</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="media">
+            <video src="assets/swingiq.mp4#t=44" poster="assets/swingiq.jpg" muted playsinline controls preload="none" data-start="44" aria-label="Video of SwingIQ drawing a pose skeleton over a golf swing"></video>
+          </div>
+          <div class="project-text">
+            <h3>SwingIQ <span>2026</span></h3>
+            <div>
+              <p>A golf swing analyser. It tracks your pose through the swing, measures things like stance width and hand height, and uses Gemini to suggest drills for what it sees.</p>
+              <p class="stack">React, JavaScript, pose tracking, Gemini API</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="media media-pair">
+            <img src="assets/autonomous-car.jpg" alt="The autonomous car: an acrylic chassis with three ultrasonic sensors and a lot of jumper wires" width="1200" height="992" loading="lazy" />
+            <video src="assets/autonomous-car.mp4" poster="assets/autonomous-car-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of the car driving itself"></video>
+          </div>
+          <div class="project-text">
+            <h3>Autonomous car <span>2025</span></h3>
+            <div>
+              <p>A small car that drives itself. Three ultrasonic sensors measure the distance to the walls and it steers away from obstacles. I built the chassis, the wiring and the code.</p>
+              <p class="stack">Arduino, C++, ultrasonic sensors</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project project-short">
+          <div class="project-text">
+            <h3>Catapult <span>2020</span></h3>
+            <div>
+              <p>My entry for a regional Maker Faire competition, and the first thing I engineered. It&rsquo;s the reason I chose mechanical engineering.</p>
+              <p class="stack">Wood, a lot of trial and error</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <img src="assets/portrait.jpg" alt="Kai Wicke" width="834" height="1251" loading="lazy" />
+        <div>
+          <h2 id="about-title">About</h2>
+          <p>I&rsquo;m in my first year of Mechanical Engineering at Northeastern. I&rsquo;m most interested in projects where CAD, electronics and code meet, like the robots above. Before university I worked in retail and as a teacher.</p>
+          <p>Outside class I play golf and chess, lift, and do a lot of maths.</p>
+          <p class="links">
+            <a href="Kai_Wicke_CV.pdf" download>Download my CV</a>
+          </p>
         </div>
       </section>
-    </div>
-  );
-}
+    </main>
+
+    <footer class="footer" id="contact">
+      <h2>Contact</h2>
+      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com">Kaiwicke07@gmail.com</a></p>
+      <p class="links">
+        <a href="https://github.com/kaiwicke07" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/kai-wicke-a1b4a2383" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+      <p class="footer-small">Boston and Berkeley &middot; &copy; 2026 Kai Wicke</p>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
