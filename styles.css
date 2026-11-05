@@ -121,6 +121,17 @@ main {
 }
 .links a:hover { color: var(--accent); }
 
+/* CAD strip on the home page */
+.cad { padding-bottom: clamp(80px, 10vw, 140px); }
+.cad-intro { max-width: 60ch; margin: -8px 0 24px; color: var(--muted); }
+.cad-intro a, .cad figcaption a { color: var(--ink); }
+.cad-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px; align-items: start; }
+.cad-grid figure { margin: 0; }
+.cad-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #f2f3f0; }
+.cad-grid figure:first-child img { object-fit: contain; }
+.cad-grid figcaption { margin-top: 10px; color: var(--muted); font-size: 0.9375rem; }
+@media (max-width: 720px) { .cad-grid { grid-template-columns: 1fr; } }
+
 /* About */
 .about {
   display: grid;

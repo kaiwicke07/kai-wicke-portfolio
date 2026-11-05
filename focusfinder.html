@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FocusFinder · Kai Wicke</title>
-    <meta name="description" content="A desk robot that notices when you stop paying attention." />
+    <meta name="description" content="An attention-tracking desk robot: a Raspberry Pi watches your eyes, and a Pico flashes a light and sounds a buzzer when you drift off." />
     <meta name="theme-color" content="#1c1c1c" />
     <meta property="og:title" content="FocusFinder · Kai Wicke" />
-    <meta property="og:description" content="A desk robot that notices when you stop paying attention." />
+    <meta property="og:description" content="An attention-tracking desk robot with a 3D-printed enclosure designed in SolidWorks." />
     <meta property="og:type" content="article" />
+    <meta property="og:image" content="/assets/focusfinder-final.jpg" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,24 +31,117 @@
       <a class="pj-back" href="/#work">&larr; All work</a>
       <section class="pj-intro">
         <h1>FocusFinder <span>2026</span></h1>
-        <p class="pj-lede">A desk robot that notices when you stop paying attention. A pair of animated eyes follows you, and if you look away for too long it nudges you back.</p>
-        
-        
+        <p class="pj-lede">A desk robot that notices when you stop paying attention. Animated eyes on a transparent screen follow you while a camera watches your eyes, and when you drift off a light flashes red and a buzzer reminds you to get back to work.</p>
+        <p class="pj-note">A team project for Cornerstone of Engineering II at NU London, with Juan Andres Escotet, Ming-Wei Hu and Filip Tomic. I led the team, designed the enclosure in SolidWorks, set up the Pi, camera and focus-detection software, and did the wiring and assembly.</p>
       </section>
 
       <div class="pj-pair">
-        <figure class="pj-figure pj-tall "><video src="/assets/focusfinder.mp4" poster="/assets/focusfinder-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of FocusFinder following a person with its eyes"></video><figcaption>The eyes follow me as I move.</figcaption></figure>
-        <figure class="pj-figure pj-tall"><img src="/assets/focusfinder.jpg" alt="FocusFinder on a desk: a white box with a small black screen and a green LED" width="576" height="1024" loading="lazy" /><figcaption>On my desk, with the focus LED on.</figcaption></figure>
+        <figure class="pj-figure pj-tall"><img src="/assets/focusfinder-final.jpg" alt="The finished FocusFinder: a white 3D-printed box with the transparent screen in a black holder and a green light on the front" width="1200" height="1600" /><figcaption>The finished build. Green means focused.</figcaption></figure>
+        <figure class="pj-figure pj-tall"><video src="/assets/focusfinder.mp4" poster="/assets/focusfinder-video.jpg" muted loop playsinline controls preload="none" aria-label="Demo video of FocusFinder reacting when the user looks away"></video><figcaption>The demo: it turns red and buzzes when I look away.</figcaption></figure>
       </div>
 
       <section class="pj-section">
-        <h2>How it works</h2>
-        <ol class="pj-steps"><li><b>Seeing.</b> A Raspberry Pi Zero 2W runs OpenCV face detection on a camera feed.</li><li><b>Eyes.</b> Animated eyes on a transparent OLED screen move to follow where your face is.</li><li><b>Feedback.</b> If you look away for too long, a Raspberry Pi Pico turns on an LED and a buzzer.</li><li><b>Timer.</b> A 20-minute Pomodoro timer and an RGB light help you work in focused blocks.</li></ol>
+        <h2>Why a desk robot</h2>
+        <p class="pj-text">App blockers and Pomodoro timers only work if you remember to use them. We wanted something passive: a small object on the desk that notices on its own when your attention slips. We scored five concepts on cost, feasibility, effectiveness and how engaging they would be to use, and the desk robot came out on top.</p>
+        <figure class="pj-figure"><img src="/assets/focusfinder-matrix.jpg" alt="Selection matrix scoring five concepts from 1 to 5: phone lockbox 11, colour-changing desk lamp 13, wearable vibration reminder 15, software focus overlay 15, FocusFinder desk robot 17" width="1658" height="666" loading="lazy" /><figcaption>Our selection matrix. Higher scores are better.</figcaption></figure>
+      </section>
+
+      <section class="pj-section">
+        <h2>How it decides you&rsquo;re distracted</h2>
+        <div class="pj-split">
+          <ol class="pj-steps">
+            <li><b>Find the eyes.</b> MediaPipe finds 468 points on your face. Six points around each eye are used.</li>
+            <li><b>Measure them.</b> The height of each eye is divided by its width. Above 0.20, your eyes are open and on the screen; below it, you&rsquo;re looking away or down.</li>
+            <li><b>Wait before judging.</b> After about 3 seconds of focus the work timer starts counting. A short glance away doesn&rsquo;t count; a couple of seconds does.</li>
+            <li><b>Show it.</b> The transparent screen shows a pair of animated eyes that follow you, the work timer and status messages.</li>
+            <li><b>React.</b> The light turns red, the buzzer sounds and the screen shows &ldquo;DISTRACTED&rdquo;. After 10 seconds away, the timer resets.</li>
+          </ol>
+          <dl class="pj-states">
+            <div><dt><span class="dot dot-green"></span>Focused</dt><dd>Timer counts up, light is green</dd></div>
+            <div><dt><span class="dot dot-red"></span>Distracted</dt><dd>Red light, buzzer, a beep every 3 seconds</dd></div>
+            <div><dt><span class="dot dot-off"></span>Away over 10 s</dt><dd>Timer resets to 00:00</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="pj-section">
+        <h2>Electronics and wiring</h2>
+        <p class="pj-text">Two boards split the work. The Raspberry Pi Zero 2W does the seeing and deciding. The Raspberry Pi Pico runs the lights and sound, so the alerts stay instant even while the Pi is busy with the camera.</p>
+        <figure class="pj-figure pj-diagram">
+          <svg viewBox="0 0 960 440" role="img" aria-labelledby="wiring-title wiring-desc">
+            <title id="wiring-title">FocusFinder wiring</title>
+            <desc id="wiring-desc">USB power feeds the Raspberry Pi Zero 2W. The Pi Camera connects by a ribbon cable and the transparent OLED by SPI. The Pi sends one focused-or-distracted signal to the Pico on GP0, and powers it from 5 volts to VSYS with a shared ground. The Pico drives an RGB LED and a buzzer.</desc>
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8fa68e" /></marker>
+            </defs>
+            <g class="wire">
+              <path d="M150 80 H250" marker-end="url(#arrow)" />
+              <path d="M330 120 V185" marker-start="url(#arrow)" />
+              <path d="M330 290 V350" marker-end="url(#arrow)" />
+              <path d="M440 220 H600" marker-end="url(#arrow)" />
+              <path d="M440 256 H600" class="power" />
+              <path d="M760 205 C 800 205, 800 110, 830 110" marker-end="url(#arrow)" />
+              <path d="M760 270 C 800 270, 800 350, 830 350" marker-end="url(#arrow)" />
+            </g>
+            <g class="label">
+              <text x="200" y="68" text-anchor="middle">5 V USB</text>
+              <text x="340" y="158">ribbon cable</text>
+              <text x="340" y="326">SPI</text>
+              <text x="520" y="208" text-anchor="middle">GP0 signal</text>
+              <text x="520" y="282" text-anchor="middle">5 V + ground</text>
+            </g>
+            <g class="node">
+              <rect x="30" y="50" width="120" height="60" rx="6" /><text x="90" y="85" text-anchor="middle">USB power</text>
+              <rect x="250" y="40" width="160" height="80" rx="6" /><text x="330" y="76" text-anchor="middle">Pi Camera</text><text x="330" y="98" text-anchor="middle" class="sub">sees your face</text>
+              <rect x="220" y="185" width="220" height="105" rx="6" class="main" /><text x="330" y="228" text-anchor="middle">Raspberry Pi Zero 2W</text><text x="330" y="252" text-anchor="middle" class="sub">OpenCV + MediaPipe,</text><text x="330" y="272" text-anchor="middle" class="sub">decides: focused or not</text>
+              <rect x="230" y="350" width="200" height="70" rx="6" /><text x="330" y="380" text-anchor="middle">Transparent OLED</text><text x="330" y="402" text-anchor="middle" class="sub">eyes, timer, messages</text>
+              <rect x="600" y="185" width="160" height="105" rx="6" class="main" /><text x="680" y="228" text-anchor="middle">Raspberry Pi Pico</text><text x="680" y="252" text-anchor="middle" class="sub">MicroPython, checks</text><text x="680" y="272" text-anchor="middle" class="sub">every 0.1 s</text>
+              <rect x="830" y="75" width="110" height="70" rx="6" /><text x="885" y="105" text-anchor="middle">RGB LED</text><text x="885" y="127" text-anchor="middle" class="sub">green / red</text>
+              <rect x="830" y="315" width="110" height="70" rx="6" /><text x="885" y="345" text-anchor="middle">Buzzer</text><text x="885" y="367" text-anchor="middle" class="sub">alerts</text>
+            </g>
+          </svg>
+          <figcaption>How the parts connect, redrawn from the sketch we planned with.</figcaption>
+        </figure>
+        <div class="pj-trio">
+          <figure class="pj-figure"><img src="/assets/focusfinder-sketch.jpg" alt="Hand-drawn notebook sketch of the Pi, camera, SPI screen, Pico on a breadboard, buzzer and RGB LED" width="1400" height="1050" loading="lazy" /><figcaption>The first sketch of the layout.</figcaption></figure>
+          <figure class="pj-figure"><img src="/assets/focusfinder-electronics.jpg" alt="The Pi Zero 2W wired to the Pi Camera by an orange ribbon cable and to the transparent OLED, on a 3D printer bed" width="1000" height="1333" loading="lazy" /><figcaption>The Pi, camera and transparent OLED.</figcaption></figure>
+          <figure class="pj-figure"><img src="/assets/focusfinder-parts.jpg" alt="All the electronics laid out before going into the enclosure: breadboard with the Pico, buzzer and LED, the Pi, camera and OLED" width="1000" height="1333" loading="lazy" /><figcaption>Everything together before the enclosure.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="pj-section" id="enclosure">
+        <h2>The enclosure</h2>
+        <p class="pj-text">The enclosure was modelled in SolidWorks and 3D printed. It took five iterations to fit the breadboard, both boards, the wiring, the LED and the USB port. The first versions were a long, shallow tray; the final one is a compact box with a sliding lid and a camera mount that rotates on a pin, so the camera angle can be adjusted to the person sitting at the desk.</p>
+        <div class="pj-pair pj-cad">
+          <figure class="pj-figure"><img src="/assets/cad-enclosure-v2.jpg" alt="SolidWorks model of an early enclosure base: a long shallow tray with cutouts for ports" width="1400" height="1020" loading="lazy" /><figcaption>An early base: a long tray with port cutouts.</figcaption></figure>
+          <figure class="pj-figure"><img src="/assets/cad-enclosure-final.jpg" alt="SolidWorks model of the final enclosure base: a compact box with two hinge tabs for the camera mount and a slot for the USB port" width="1400" height="1020" loading="lazy" /><figcaption>The final base: compact, with tabs for the camera mount.</figcaption></figure>
+          <figure class="pj-figure"><img src="/assets/cad-camera-holder.jpg" alt="SolidWorks model of the display and camera holder, which pivots on a pin" width="1400" height="1020" loading="lazy" /><figcaption>The display and camera holder pivots on a pin.</figcaption></figure>
+          <figure class="pj-figure"><img src="/assets/cad-lid.jpg" alt="SolidWorks model of the lid, a flat plate with rails along two edges" width="1400" height="1020" loading="lazy" /><figcaption>The lid slides in on rails.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="pj-section">
+        <h2>Problems we solved</h2>
+        <div class="pj-problems">
+          <article><h3>The camera wasn&rsquo;t detected</h3><p>The Pi didn&rsquo;t see the camera at all. Changing the configuration revealed an <code>EREMOTEIO</code> error, which pointed at the connection, and reseating the ribbon cable the right way round fixed it.</p></article>
+          <article><h3>Not enough memory</h3><p>The Pi Zero 2W has very little memory, so we kept the script lightweight. We started with Haar cascades because they are cheap, but after optimising, MediaPipe ran just as fast and was more accurate, so we switched.</p></article>
+          <article><h3>Fitting everything in</h3><p>Five print iterations to fit the breadboard, both boards, the wiring, the LED and the USB port. The lesson: measure every part properly before the first print.</p></article>
+          <article><h3>Faulty parts</h3><p>The LED and buzzer kept failing. We traced it to faulty components and rewired the feedback circuit four times before it was reliable.</p></article>
+        </div>
+      </section>
+
+      <section class="pj-section">
+        <h2>What I&rsquo;d do next</h2>
+        <ul class="pj-list">
+          <li>Agree on mockups as a team and take every measurement before the first CAD model.</li>
+          <li>Keep focus statistics and send a monthly summary of your attention habits.</li>
+          <li>A companion app for custom alerts, and a button or voice control on the device.</li>
+        </ul>
       </section>
 
       <section class="pj-section pj-stack">
         <h2>Built with</h2>
-        <p>Raspberry Pi Zero 2W, Raspberry Pi Pico, OpenCV, Python and MicroPython, a camera, a transparent OLED, an RGB LED and a buzzer.</p>
+        <p>Raspberry Pi Zero 2W, Raspberry Pi Pico, Pi Camera, Waveshare 1.51&Prime; transparent OLED, Python with OpenCV and MediaPipe, MicroPython, SolidWorks and 3D printing.</p>
       </section>
 
       <a class="pj-next" href="/autonomous-car"><span>Next project</span>Autonomous car &rarr;</a>

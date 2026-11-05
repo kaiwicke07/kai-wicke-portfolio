@@ -88,3 +88,49 @@
   .pj-pair, .pj-pair-wide { grid-template-columns: 1fr; }
   .pj-pair-wide img { aspect-ratio: auto; }
 }
+
+/* Richer project pages: diagrams, CAD sets, states, problems */
+.pj-figure + .pj-trio, .pj-figure + .pj-pair { margin-top: 24px; }
+.pj-text + .pj-figure, .pj-text + .pj-pair { margin-top: 0; }
+.pj-trio { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 12px; align-items: start; margin-top: 24px; }
+.pj-trio img { aspect-ratio: 3 / 4; object-fit: cover; }
+.pj-trio .pj-figure:first-child img { aspect-ratio: 4 / 3; }
+.pj-cad { grid-template-columns: 1fr 1fr; gap: 16px 12px; }
+.pj-cad img { aspect-ratio: 1400 / 1020; }
+
+.pj-diagram { padding: clamp(16px, 3vw, 32px); background: var(--surface); }
+.pj-diagram svg { display: block; width: 100%; height: auto; }
+.pj-diagram figcaption { margin-top: 14px; }
+.pj-diagram .wire path { fill: none; stroke: #8fa68e; stroke-width: 2.5; }
+.pj-diagram .wire .power { stroke: #a3a49f; stroke-dasharray: 6 5; }
+.pj-diagram .node rect { fill: #1c1c1c; stroke: #4a4a47; stroke-width: 1.5; }
+.pj-diagram .node rect.main { stroke: #8fa68e; }
+.pj-diagram text { fill: #f1f1ef; font-family: var(--face); font-size: 17px; font-weight: 600; }
+.pj-diagram text.sub { fill: #a3a49f; font-size: 14px; font-weight: 400; }
+.pj-diagram .label text { fill: #a3a49f; font-size: 14px; font-weight: 400; }
+
+.pj-split { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px clamp(32px, 5vw, 72px); align-items: start; }
+.pj-states { display: grid; gap: 0; margin: 0; background: var(--surface); }
+.pj-states div { padding: 16px 20px; border-top: 1px solid #333331; }
+.pj-states div:first-child { border-top: 0; }
+.pj-states dt { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.pj-states dd { margin: 4px 0 0 22px; color: var(--muted); }
+.dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.dot-green { background: #4fbf6a; box-shadow: 0 0 10px #4fbf6a; }
+.dot-red { background: #e0524a; box-shadow: 0 0 10px #e0524a; }
+.dot-off { background: #4a4a47; }
+
+.pj-problems { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px clamp(32px, 5vw, 72px); }
+.pj-problems h3 { margin-bottom: 8px; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.01em; }
+.pj-problems p { max-width: 56ch; color: var(--muted); }
+.pj-problems code { font-size: 0.9em; color: var(--ink); }
+.pj-list { display: grid; gap: 10px; max-width: 64ch; margin: 0; padding-left: 1.2em; }
+.pj-list li::marker { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .pj-split { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .pj-trio, .pj-cad, .pj-problems { grid-template-columns: 1fr; }
+  .pj-trio img, .pj-trio .pj-figure:first-child img { aspect-ratio: auto; }
+}
