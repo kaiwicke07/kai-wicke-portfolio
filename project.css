@@ -1,0 +1,90 @@
+/* Project pages. Builds on styles.css (same palette and type). */
+
+.pj-back {
+  display: inline-block;
+  margin-top: clamp(24px, 4vw, 40px);
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.pj-back:hover { color: var(--ink); }
+
+.pj-intro { padding: clamp(32px, 6vw, 72px) 0 clamp(36px, 5vw, 56px); }
+.pj-intro h1 {
+  font-size: clamp(2.75rem, 1.5rem + 5vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+.pj-intro h1 span { margin-left: 10px; color: var(--muted); font-size: 0.35em; font-weight: 400; letter-spacing: 0; }
+.pj-lede {
+  max-width: 34ch;
+  margin-top: 24px;
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.pj-note { max-width: 60ch; margin-top: 16px; color: var(--muted); }
+.pj-intro .links { margin-top: 24px; }
+
+/* Pictures and videos: always the full width or a tidy pair, never stretched */
+.pj-figure { margin: 0; }
+.pj-figure img, .pj-figure video { width: 100%; height: auto; background: var(--surface); }
+.pj-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 0.9375rem; }
+.pj-figure + .pj-figure, .pj-steps + .pj-figure, .pj-facts + .pj-figure, .pj-table-wrap + .pj-figure { margin-top: 32px; }
+.pj-pair .pj-figure { margin-top: 0; }
+
+/* Portrait photos and phone videos sit side by side at the same height */
+.pj-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+.pj-pair .pj-tall img, .pj-pair .pj-tall video { aspect-ratio: 9 / 16; object-fit: cover; }
+/* A landscape photo next to a phone video: both cropped to the same 4:5 frame */
+.pj-pair-wide img, .pj-pair-wide .pj-figure video { aspect-ratio: 4 / 5; object-fit: cover; }
+.pj-pair-wide img { object-position: 50% 75%; }
+
+.pj-section { padding-top: clamp(64px, 9vw, 112px); }
+.pj-section h2 {
+  margin-bottom: 28px;
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.pj-text { max-width: 62ch; margin-bottom: 24px; }
+
+.pj-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px clamp(24px, 4vw, 56px); margin: 0; }
+.pj-facts div { border-top: 1px solid #3a3a38; padding-top: 16px; }
+.pj-facts dt { margin-bottom: 6px; font-weight: 600; }
+.pj-facts dd { margin: 0; color: var(--muted); }
+
+.pj-steps { display: grid; gap: 14px; max-width: 64ch; margin: 0; padding-left: 1.4em; }
+.pj-steps li::marker { color: var(--accent); font-weight: 600; }
+.pj-steps b { font-weight: 600; }
+
+.pj-table-wrap { overflow-x: auto; }
+.pj-table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.pj-table th, .pj-table td { padding: 12px 16px 12px 0; border-bottom: 1px solid #3a3a38; text-align: left; vertical-align: top; }
+.pj-table th { color: var(--muted); font-weight: 500; }
+
+.pj-stack p { max-width: 62ch; }
+
+.pj-next {
+  display: block;
+  margin: clamp(72px, 10vw, 128px) 0 clamp(64px, 8vw, 96px);
+  padding: 28px 0;
+  border-top: 1px solid #3a3a38;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.pj-next span { display: block; margin-bottom: 6px; color: var(--muted); font-size: 1rem; font-weight: 400; letter-spacing: 0; }
+.pj-next:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .pj-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .pj-facts { grid-template-columns: 1fr; }
+  .pj-pair, .pj-pair-wide { grid-template-columns: 1fr; }
+  .pj-pair-wide img { aspect-ratio: auto; }
+}

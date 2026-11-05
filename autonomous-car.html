@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autonomous car · Kai Wicke</title>
+    <meta name="description" content="A small car that drives itself, steering around walls with ultrasonic sensors." />
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta property="og:title" content="Autonomous car · Kai Wicke" />
+    <meta property="og:description" content="A small car that drives itself, steering around walls with ultrasonic sensors." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/project.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="bar-name" href="/">Kai Wicke</a>
+      <nav class="bar-links" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/Kai_Wicke_CV.pdf" download>CV</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <a class="pj-back" href="/#work">&larr; All work</a>
+      <section class="pj-intro">
+        <h1>Autonomous car <span>2025</span></h1>
+        <p class="pj-lede">A small car that drives itself. Three ultrasonic sensors measure the distance to the walls, and it steers away from obstacles.</p>
+        <p class="pj-note">I built the chassis, the wiring and the code.</p>
+        
+      </section>
+
+      <div class="pj-pair pj-pair-wide">
+        <figure class="pj-figure "><img src="/assets/autonomous-car.jpg" alt="The autonomous car: an acrylic chassis with three ultrasonic sensors and a lot of jumper wires" width="1200" height="992" loading="lazy" /><figcaption>Three ultrasonic sensors: one facing forward and one angled to each side.</figcaption></figure>
+        <figure class="pj-figure pj-tall "><video src="/assets/autonomous-car.mp4" poster="/assets/autonomous-car-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of the car driving itself"></video><figcaption>Driving itself.</figcaption></figure>
+      </div>
+
+      <section class="pj-section">
+        <h2>How it works</h2>
+        <ol class="pj-steps"><li><b>Sensing.</b> The three sensors measure the distance ahead and to each side.</li><li><b>Deciding.</b> The Arduino compares the distances and turns toward whichever side has more room.</li><li><b>Driving.</b> A motor driver board sets the wheel motors&rsquo; speeds to steer.</li></ol>
+      </section>
+
+      <section class="pj-section pj-stack">
+        <h2>Built with</h2>
+        <p>Arduino, C++, ultrasonic sensors, a motor driver and an acrylic chassis.</p>
+      </section>
+
+      <a class="pj-next" href="/swingiq"><span>Next project</span>SwingIQ &rarr;</a>
+    </main>
+
+    <footer class="footer">
+      <h2>Contact</h2>
+      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com">Kaiwicke07@gmail.com</a></p>
+      <p class="footer-small">Kai Wicke · Boston, MA · &copy; 2026</p>
+    </footer>
+    <script src="/main.js" defer></script>
+  </body>
+</html>

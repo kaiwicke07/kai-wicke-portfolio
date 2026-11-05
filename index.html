@@ -39,113 +39,71 @@
         <p class="intro-note">Looking for a Summer 2027 co-op, ideally where engineering meets AI. I also <a href="/web-design">build websites for local businesses</a>.</p>
       </section>
 
-      <section id="work" aria-labelledby="work-title">
-        <h2 class="visually-hidden" id="work-title">Work</h2>
-
-        <article class="project">
-          <div class="media media-pair">
-            <video src="assets/focusfinder.mp4" poster="assets/focusfinder-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of FocusFinder following a person with its eyes"></video>
-            <img src="assets/focusfinder.jpg" alt="FocusFinder on a desk: a white box with a small black OLED screen and a green LED" width="576" height="1024" loading="lazy" />
-          </div>
-          <div class="project-text">
-            <h3>FocusFinder <span>2026</span></h3>
-            <div>
-              <p>A desk robot that notices when you stop paying attention. A Raspberry Pi Zero 2W runs OpenCV face detection, and a pair of animated eyes on a transparent OLED follows you. If you look away for too long, a Pico turns on an LED and a buzzer.</p>
-              <p class="stack">Raspberry Pi, OpenCV, MicroPython</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media">
-            <img src="assets/chess-coach.jpg" alt="chess.ai: the coach stops the move Ba6 and explains that it loses the bishop to Nxa6" width="2560" height="1720" loading="lazy" />
-          </div>
-          <div class="project-text">
-            <h3>chess.ai <span>2026</span></h3>
-            <div>
-              <p>A chess trainer. It pulls your games from Lichess or Chess.com, analyses them with Stockfish in the browser, and turns your mistakes into puzzles. You can also play bots rated about 400 to 2400 with a coach that stops you after a bad move and shows the line that punishes it.</p>
-              <p class="stack">Next.js, TypeScript, Stockfish</p>
-              <p class="links">
-                <a href="https://chess-ai-nu.vercel.app" target="_blank" rel="noopener">Live site</a>
-                <a href="https://github.com/kaiwicke07/chess-ai" target="_blank" rel="noopener">Code</a>
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media media-dark">
-            <img src="assets/fea-bracket.jpg" alt="Von Mises stress in an L-bracket bolted at two holes, highest at the inside corner" width="1528" height="1358" loading="lazy" />
-          </div>
-          <div class="project-text">
-            <h3>Plane Stress FEA <span>2026</span></h3>
-            <div>
-              <p>A 2D finite element solver I wrote from scratch in TypeScript, without FEA or linear algebra libraries: meshing, 3- and 6-node triangle elements, a conjugate-gradient solver and stress recovery. You draw a part, add supports and loads, and it shows the stress. The results are checked against the Kirsch and Timoshenko solutions.</p>
-              <p class="stack">TypeScript, WebGL, finite element methods</p>
-              <p class="links">
-                <a href="https://plane-stress-fea.vercel.app" target="_blank" rel="noopener">Live site</a>
-                <a href="https://github.com/kaiwicke07/plane-stress-fea" target="_blank" rel="noopener">Code</a>
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media">
-            <img src="assets/swingiq-app.jpg" alt="SwingIQ: a golf swing at impact with the tracked skeleton in lime and a glowing trail of the hands' path, next to the session summary" width="2880" height="1880" loading="lazy" />
-          </div>
-          <div class="project-text">
-            <h3>SwingIQ <span>2026</span></h3>
-            <div>
-              <p>A free golf swing analyser that runs in the browser. MediaPipe pose tracking follows your body frame by frame and finds address, top, impact and finish. It then measures your tempo, posture, sway and balance, picks the one thing to fix first, and gives you step-by-step drills. Your video never leaves your device.</p>
-              <p class="stack">React, TypeScript, MediaPipe pose tracking</p>
-              <p class="links">
-                <a href="https://swingiq-seven.vercel.app" target="_blank" rel="noopener">Live site</a>
-                <a href="https://github.com/kaiwicke07/New-golf" target="_blank" rel="noopener">Code</a>
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media">
-            <img src="assets/life-os.jpg" alt="Life OS with sample data: a greeting and the time over a sky-coloured band, then tasks with due dates, a timeline of the day's classes and an inbox sorted by importance" width="2880" height="1800" loading="lazy" />
-          </div>
-          <div class="project-text">
-            <h3>Life OS <span>2026</span></h3>
-            <div>
-              <p>A personal dashboard that opens when I log in. It puts my tasks, classes, Canvas deadlines, the gym split, weather and news on one screen, and sorts my Gmail by how much each email needs me. In the morning I say &ldquo;Hey Siri, Hello Life OS&rdquo; and my phone reads me the day, even when my computer is off.</p>
-              <p class="stack">Node.js, Vercel Functions, Gmail IMAP, Canvas API, Siri Shortcuts</p>
-              <p class="links">
-                <a href="/life-os">How it works</a>
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media media-pair">
-            <img src="assets/autonomous-car.jpg" alt="The autonomous car: an acrylic chassis with three ultrasonic sensors and a lot of jumper wires" width="1200" height="992" loading="lazy" />
-            <video src="assets/autonomous-car.mp4" poster="assets/autonomous-car-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of the car driving itself"></video>
-          </div>
-          <div class="project-text">
-            <h3>Autonomous car <span>2025</span></h3>
-            <div>
-              <p>A small car that drives itself. Three ultrasonic sensors measure the distance to the walls and it steers away from obstacles. I built the chassis, the wiring and the code.</p>
-              <p class="stack">Arduino, C++, ultrasonic sensors</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project project-short">
-          <div class="project-text">
-            <h3>Catapult <span>2020</span></h3>
-            <div>
-              <p>My entry for a regional Maker Faire competition, and the first thing I engineered. It&rsquo;s the reason I chose mechanical engineering.</p>
-              <p class="stack">Wood, a lot of trial and error</p>
-            </div>
-          </div>
-        </article>
+      <section id="work" class="work" aria-labelledby="work-title">
+        <h2 class="work-title" id="work-title">Work</h2>
+        <ul class="cards">
+          <li>
+            <a class="card" href="/fea">
+              <span class="card-media card-media-light"><img src="assets/fea-solver.jpg" alt="" width="1920" height="1200" loading="lazy" style="object-position: 62% 40%" /></span>
+              <span class="card-body">
+                <span class="card-title">Plane Stress FEA <span>2026</span></span>
+                <span class="card-text">A 2D finite element solver I wrote from scratch, checked against textbook solutions.</span>
+                <span class="card-stack">TypeScript · finite element methods</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="/focusfinder">
+              <span class="card-media"><img src="assets/focusfinder.jpg" alt="" width="576" height="1024" loading="lazy" style="object-position: 50% 52%" /></span>
+              <span class="card-body">
+                <span class="card-title">FocusFinder <span>2026</span></span>
+                <span class="card-text">A desk robot whose eyes follow you and that notices when you stop paying attention.</span>
+                <span class="card-stack">Raspberry Pi · OpenCV · MicroPython</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="/autonomous-car">
+              <span class="card-media"><img src="assets/autonomous-car.jpg" alt="" width="1200" height="992" loading="lazy" style="object-position: 50% 72%" /></span>
+              <span class="card-body">
+                <span class="card-title">Autonomous car <span>2025</span></span>
+                <span class="card-text">A small car that drives itself and steers around walls with three ultrasonic sensors.</span>
+                <span class="card-stack">Arduino · C++</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="/swingiq">
+              <span class="card-media"><img src="assets/swingiq-app.jpg" alt="" width="2880" height="1880" loading="lazy" style="object-position: 30% 50%" /></span>
+              <span class="card-body">
+                <span class="card-title">SwingIQ <span>2026</span></span>
+                <span class="card-text">A free golf swing analyser that tracks your body in the browser and gives you drills.</span>
+                <span class="card-stack">React · MediaPipe pose tracking</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="/chess-ai">
+              <span class="card-media"><img src="assets/chess-coach.jpg" alt="" width="2560" height="1720" loading="lazy" style="object-position: 35% 50%" /></span>
+              <span class="card-body">
+                <span class="card-title">chess.ai <span>2026</span></span>
+                <span class="card-text">A chess trainer that turns your own mistakes into puzzles, with bots and a live coach.</span>
+                <span class="card-stack">Next.js · Stockfish</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="/life-os">
+              <span class="card-media"><img src="assets/life-os.jpg" alt="" width="2880" height="1800" loading="lazy" style="object-position: 0% 0%" /></span>
+              <span class="card-body">
+                <span class="card-title">Life OS <span>2026</span></span>
+                <span class="card-text">My daily dashboard, and a morning briefing Siri reads to me even when my computer is off.</span>
+                <span class="card-stack">Node.js · Vercel · Siri Shortcuts</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class="earlier">Earlier: a catapult for a regional Maker Faire competition in 2020. It was the first thing I engineered, and the reason I chose mechanical engineering.</p>
       </section>
 
       <section class="about" id="about" aria-labelledby="about-title">
@@ -153,7 +111,7 @@
         <div>
           <h2 id="about-title">About</h2>
           <p>I&rsquo;m in my second year of Mechanical Engineering at Northeastern. I spent my first year at NU London and I&rsquo;m now in Boston. I&rsquo;m most interested in projects where CAD, electronics and code meet, like the robots above, and I want to learn how AI is used in engineering.</p>
-          <p>I<p>I&rsquo;ve also worked at Ole Factoriersquo;ve worked at Ole Factorie Candles in Oakland, where I ran events, managed orders for big clients including Oakland International Airport, and built the company website. Before that I tutored maths and chemistry and was a summer camp counselor.</p>
+          <p>I&rsquo;ve worked at Ole Factorie Candles in Oakland, where I ran events, managed orders for big clients including Oakland International Airport, and built the company website. Before that I tutored maths and chemistry and was a summer camp counselor.</p>
           <p>Outside class I play golf and chess, lift, and do a lot of maths.</p>
           <p class="links">
             <a href="Kai_Wicke_CV.pdf" download>Download my CV</a>

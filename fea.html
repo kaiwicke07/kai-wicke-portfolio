@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plane Stress FEA · Kai Wicke</title>
+    <meta name="description" content="A 2D finite element solver written from scratch in TypeScript, validated against analytical solutions." />
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta property="og:title" content="Plane Stress FEA · Kai Wicke" />
+    <meta property="og:description" content="A 2D finite element solver written from scratch in TypeScript, validated against analytical solutions." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/project.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="bar-name" href="/">Kai Wicke</a>
+      <nav class="bar-links" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/Kai_Wicke_CV.pdf" download>CV</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <a class="pj-back" href="/#work">&larr; All work</a>
+      <section class="pj-intro">
+        <h1>Plane Stress FEA <span>2026</span></h1>
+        <p class="pj-lede">A 2D finite element solver that runs in the browser. You draw a part, add supports and loads, and it shows the deformed shape and the stress.</p>
+        <p class="pj-note">I wrote the finite element core from scratch, with no FEA or linear algebra libraries.</p>
+        <p class="links"><a href="https://plane-stress-fea.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/kaiwicke07/plane-stress-fea" target="_blank" rel="noopener">Code</a></p>
+      </section>
+
+      <figure class="pj-figure "><img src="/assets/fea-solver.jpg" alt="An L-bracket bolted through two holes with a load on its arm: von Mises stress on the deformed shape, highest at the inside corner" width="1920" height="1200" loading="lazy" /><figcaption>An L-bracket bolted at two holes. The stress peaks at the inside corner, and the factor of safety is 1.31.</figcaption></figure>
+
+      <section class="pj-section">
+        <h2>What it does</h2>
+        <dl class="pj-facts"><div><dt>Parts</dt><dd>A cantilever, a tension strip, a plate with a hole, or a part you draw yourself with holes, snapping and undo.</dd></div><div><dt>Supports and loads</dt><dd>Fixed supports or rollers, and forces, pressures or tractions, on any edge, hole edges included.</dd></div><div><dt>Elements</dt><dd>3-node constant strain triangles and 6-node triangles with curved edges.</dd></div><div><dt>Meshing</dt><dd>Structured meshes for the presets, and my own Delaunay mesher for drawn parts, finer near holes.</dd></div><div><dt>Results</dt><dd>Von Mises and other stresses, the deformed shape, a factor of safety and an equilibrium check on every solve.</dd></div><div><dt>Speed</dt><dd>The solver runs in a background thread, so the page stays responsive while it works.</dd></div></dl>
+      </section>
+
+      <section class="pj-section">
+        <h2>Checked against the textbook</h2>
+        <p class="pj-text">A validation page reruns every study in your browser with the same code and tolerances as the automated tests.</p>
+        <div class="pj-table-wrap"><table class="pj-table">
+          <thead><tr><th>Study</th><th>Reference</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Cantilever, exact solution</td><td>Timoshenko &amp; Goodier</td><td>Errors shrink at the rates theory predicts</td></tr>
+            <tr><td>Cantilever, clamped wall</td><td>Timoshenko beam theory</td><td>Within 0.3%</td></tr>
+            <tr><td>Plate with a hole</td><td>Kirsch, Heywood</td><td>Stress concentration within 0.06% of Heywood</td></tr>
+            <tr><td>3-node vs 6-node elements</td><td>Same model</td><td>6-node with 210 unknowns beats 3-node with 10,626</td></tr>
+          </tbody>
+        </table></div>
+        <figure class="pj-figure "><img src="/assets/fea-validation.jpg" alt="Charts of error against degrees of freedom: the 6-node elements' error falls much faster than the 3-node elements'" width="1920" height="1200" loading="lazy" /><figcaption>6-node elements reach a given accuracy with far fewer unknowns than 3-node ones.</figcaption></figure>
+      </section>
+
+      <section class="pj-section">
+        <h2>Plate with a hole</h2>
+        <figure class="pj-figure "><img src="/assets/fea-plate.jpg" alt="A quarter model of a plate with a hole under tension, with symmetry rollers; the stress is highest at the edge of the hole" width="1920" height="1200" loading="lazy" /><figcaption>A quarter model using symmetry. The stress at the edge of the hole is about three times the applied stress, as Kirsch predicts.</figcaption></figure>
+      </section>
+
+      <section class="pj-section pj-stack">
+        <h2>Built with</h2>
+        <p>TypeScript, React, WebGL, Web Workers, Vitest. Every part of the maths has a written derivation in the repository.</p>
+      </section>
+
+      <a class="pj-next" href="/focusfinder"><span>Next project</span>FocusFinder &rarr;</a>
+    </main>
+
+    <footer class="footer">
+      <h2>Contact</h2>
+      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com">Kaiwicke07@gmail.com</a></p>
+      <p class="footer-small">Kai Wicke · Boston, MA · &copy; 2026</p>
+    </footer>
+    <script src="/main.js" defer></script>
+  </body>
+</html>

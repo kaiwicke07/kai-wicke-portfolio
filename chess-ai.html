@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chess.ai · Kai Wicke</title>
+    <meta name="description" content="A free chess trainer that turns your own mistakes into puzzles, with bots and a live coach." />
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta property="og:title" content="chess.ai · Kai Wicke" />
+    <meta property="og:description" content="A free chess trainer that turns your own mistakes into puzzles, with bots and a live coach." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/project.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="bar-name" href="/">Kai Wicke</a>
+      <nav class="bar-links" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/Kai_Wicke_CV.pdf" download>CV</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <a class="pj-back" href="/#work">&larr; All work</a>
+      <section class="pj-intro">
+        <h1>chess.ai <span>2026</span></h1>
+        <p class="pj-lede">A chess trainer that learns from your own games. It imports your Lichess or Chess.com games, analyses every move with Stockfish in your browser, and turns your mistakes into puzzles.</p>
+        <p class="pj-note">It costs nothing to run: no accounts, no paid services, and your games never leave your browser.</p>
+        <p class="links"><a href="https://chess-ai-nu.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/kaiwicke07/chess-ai" target="_blank" rel="noopener">Code</a></p>
+      </section>
+
+      <figure class="pj-figure "><img src="/assets/chess-coach.jpg" alt="chess.ai: the coach stops the move Ba6 and explains that it loses the bishop to Nxa6" width="2560" height="1720" loading="lazy" /><figcaption>The coach stops a bad move and shows the line that punishes it.</figcaption></figure>
+
+      <section class="pj-section">
+        <h2>What it does</h2>
+        <dl class="pj-facts"><div><dt>Game review</dt><dd>An evaluation bar and graph, the engine&rsquo;s best line, and every inaccuracy, mistake and blunder marked.</dd></div><div><dt>Puzzles</dt><dd>Positions from your own mistakes, kept only when one move is clearly best.</dd></div><div><dt>Spaced repetition</dt><dd>Puzzles come back on a schedule, sooner if you got them wrong.</dd></div><div><dt>Openings</dt><dd>A tree of your openings, ranked by where you lose the most.</dd></div><div><dt>Bots and a coach</dt><dd>Six bots from about 400 to 2400. The coach pauses the game after a bad move and lets you try again.</dd></div><div><dt>Progress</dt><dd>Accuracy, blunder rate and puzzle results week by week.</dd></div></dl><figure class="pj-figure "><img src="/assets/chess-play.jpg" alt="The bot picker: six opponents from Pip at about 400 to Ada at about 2400, and coach settings" width="1920" height="1200" loading="lazy" /><figcaption>Pick an opponent and how strict the coach should be.</figcaption></figure>
+      </section>
+
+      <section class="pj-section">
+        <h2>How it works</h2>
+        <ol class="pj-steps"><li><b>Import.</b> The browser fetches your games straight from Lichess or Chess.com.</li><li><b>Analyse.</b> Stockfish runs in the browser. Positions are cached, so an opening shared by many games is only analysed once.</li><li><b>Judge.</b> Mistakes are graded with Lichess&rsquo;s own rules. A test checks my version against Lichess&rsquo;s verdicts on real games.</li><li><b>Explain.</b> Notes like &ldquo;this hangs the bishop&rdquo; come from replaying the engine&rsquo;s lines, not from guesses.</li><li><b>Practise.</b> Mistakes become puzzles, and everything is scheduled for review.</li></ol>
+      </section>
+
+      <section class="pj-section pj-stack">
+        <h2>Built with</h2>
+        <p>Next.js, React, TypeScript, Tailwind CSS, chess.js, Stockfish (WebAssembly), IndexedDB, Vitest.</p>
+      </section>
+
+      <a class="pj-next" href="/life-os"><span>Next project</span>Life OS &rarr;</a>
+    </main>
+
+    <footer class="footer">
+      <h2>Contact</h2>
+      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com">Kaiwicke07@gmail.com</a></p>
+      <p class="footer-small">Kai Wicke · Boston, MA · &copy; 2026</p>
+    </footer>
+    <script src="/main.js" defer></script>
+  </body>
+</html>

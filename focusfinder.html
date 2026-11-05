@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFinder · Kai Wicke</title>
+    <meta name="description" content="A desk robot that notices when you stop paying attention." />
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta property="og:title" content="FocusFinder · Kai Wicke" />
+    <meta property="og:description" content="A desk robot that notices when you stop paying attention." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/project.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="bar-name" href="/">Kai Wicke</a>
+      <nav class="bar-links" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/Kai_Wicke_CV.pdf" download>CV</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <a class="pj-back" href="/#work">&larr; All work</a>
+      <section class="pj-intro">
+        <h1>FocusFinder <span>2026</span></h1>
+        <p class="pj-lede">A desk robot that notices when you stop paying attention. A pair of animated eyes follows you, and if you look away for too long it nudges you back.</p>
+        
+        
+      </section>
+
+      <div class="pj-pair">
+        <figure class="pj-figure pj-tall "><video src="/assets/focusfinder.mp4" poster="/assets/focusfinder-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of FocusFinder following a person with its eyes"></video><figcaption>The eyes follow me as I move.</figcaption></figure>
+        <figure class="pj-figure pj-tall"><img src="/assets/focusfinder.jpg" alt="FocusFinder on a desk: a white box with a small black screen and a green LED" width="576" height="1024" loading="lazy" /><figcaption>On my desk, with the focus LED on.</figcaption></figure>
+      </div>
+
+      <section class="pj-section">
+        <h2>How it works</h2>
+        <ol class="pj-steps"><li><b>Seeing.</b> A Raspberry Pi Zero 2W runs OpenCV face detection on a camera feed.</li><li><b>Eyes.</b> Animated eyes on a transparent OLED screen move to follow where your face is.</li><li><b>Feedback.</b> If you look away for too long, a Raspberry Pi Pico turns on an LED and a buzzer.</li><li><b>Timer.</b> A 20-minute Pomodoro timer and an RGB light help you work in focused blocks.</li></ol>
+      </section>
+
+      <section class="pj-section pj-stack">
+        <h2>Built with</h2>
+        <p>Raspberry Pi Zero 2W, Raspberry Pi Pico, OpenCV, Python and MicroPython, a camera, a transparent OLED, an RGB LED and a buzzer.</p>
+      </section>
+
+      <a class="pj-next" href="/autonomous-car"><span>Next project</span>Autonomous car &rarr;</a>
+    </main>
+
+    <footer class="footer">
+      <h2>Contact</h2>
+      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com">Kaiwicke07@gmail.com</a></p>
+      <p class="footer-small">Kai Wicke · Boston, MA · &copy; 2026</p>
+    </footer>
+    <script src="/main.js" defer></script>
+  </body>
+</html>

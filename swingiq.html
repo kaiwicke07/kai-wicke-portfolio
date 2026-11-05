@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwingIQ · Kai Wicke</title>
+    <meta name="description" content="A free golf swing analyser that runs in the browser with MediaPipe pose tracking." />
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta property="og:title" content="SwingIQ · Kai Wicke" />
+    <meta property="og:description" content="A free golf swing analyser that runs in the browser with MediaPipe pose tracking." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/project.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="bar-name" href="/">Kai Wicke</a>
+      <nav class="bar-links" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/Kai_Wicke_CV.pdf" download>CV</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <a class="pj-back" href="/#work">&larr; All work</a>
+      <section class="pj-intro">
+        <h1>SwingIQ <span>2026</span></h1>
+        <p class="pj-lede">A free golf swing analyser. Film a swing on your phone and it tracks your body frame by frame, measures your swing, tells you the one thing to fix first and gives you drills for it.</p>
+        <p class="pj-note">Your video is analysed on your own device. Nothing is uploaded and there&rsquo;s no account.</p>
+        <p class="links"><a href="https://swingiq-seven.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/kaiwicke07/New-golf" target="_blank" rel="noopener">Code</a></p>
+      </section>
+
+      <figure class="pj-figure "><img src="/assets/swingiq-app.jpg" alt="SwingIQ at impact: the tracked skeleton in lime and the path of the hands, next to the session summary" width="2880" height="1880" loading="lazy" /><figcaption>Impact, with the tracked body and the path of the hands.</figcaption></figure>
+
+      <section class="pj-section">
+        <h2>What it measures</h2>
+        <dl class="pj-facts"><div><dt>Tempo</dt><dd>Backswing time over downswing time. Good players are close to 3 to 1.</dd></div><div><dt>Posture</dt><dd>Forward bend at address, and whether you stand up through impact.</dd></div><div><dt>Head and hips</dt><dd>Head rising, dipping or sliding, and hips swaying in the backswing.</dd></div><div><dt>Arms and turn</dt><dd>Lead arm bend at the top, and an estimate of your shoulder turn.</dd></div><div><dt>Balance</dt><dd>Whether you finish with your weight on your lead foot.</dd></div><div><dt>Drills</dt><dd>Each fault maps to step-by-step drills from a 14-drill library.</dd></div></dl>
+      </section>
+
+      <section class="pj-section">
+        <h2>How it works</h2>
+        <ol class="pj-steps"><li><b>Tracking.</b> MediaPipe pose tracking finds 33 body points in up to 240 frames of the video.</li><li><b>Cleaning.</b> Shaky or low-confidence points are filled in and smoothed.</li><li><b>Phases.</b> It finds address, the top, impact and the finish from how fast the hands move.</li><li><b>Measuring.</b> Angles and distances are scaled to your own body, so the distance to the camera doesn&rsquo;t matter.</li><li><b>Coaching.</b> A priority order picks the first thing to fix, so you aren&rsquo;t given ten things at once.</li></ol><figure class="pj-figure "><img src="/assets/swingiq-home.jpg" alt="SwingIQ's home page: a large headline, buttons to choose or record a video, and a drop zone" width="1920" height="1200" loading="lazy" /><figcaption>The home page. A sample swing is built in, so you can try it without filming yourself.</figcaption></figure>
+      </section>
+
+      <section class="pj-section pj-stack">
+        <h2>Built with</h2>
+        <p>React, TypeScript, Vite, MediaPipe pose tracking, Vitest with real swings as test cases.</p>
+      </section>
+
+      <a class="pj-next" href="/chess-ai"><span>Next project</span>chess.ai &rarr;</a>
+    </main>
+
+    <footer class="footer">
+      <h2>Contact</h2>
+      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com">Kaiwicke07@gmail.com</a></p>
+      <p class="footer-small">Kai Wicke · Boston, MA · &copy; 2026</p>
+    </footer>
+    <script src="/main.js" defer></script>
+  </body>
+</html>
