@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autonomous car · Kai Wicke</title>
-    <meta name="description" content="A small car that drives itself, steering around walls with ultrasonic sensors." />
+    <meta name="description" content="A robot car on a Raspberry Pi Pico that drove a straight line, a pre-programmed maze and a maze it navigated itself with three ultrasonic sensors." />
     <meta name="theme-color" content="#1c1c1c" />
     <meta property="og:title" content="Autonomous car · Kai Wicke" />
-    <meta property="og:description" content="A small car that drives itself, steering around walls with ultrasonic sensors." />
+    <meta property="og:description" content="A Raspberry Pi Pico robot car that finds its own way through a maze with three ultrasonic sensors." />
     <meta property="og:type" content="article" />
+    <meta property="og:image" content="/assets/car-sensors.jpg" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,30 +31,75 @@
       <a class="pj-back" href="/#work">&larr; All work</a>
       <section class="pj-intro">
         <h1>Autonomous car <span>2025</span></h1>
-        <p class="pj-lede">A small car that drives itself. Three ultrasonic sensors measure the distance to the walls, and it steers away from obstacles.</p>
-        <p class="pj-note">I built the chassis, the wiring and the code.</p>
-        
+        <p class="pj-lede">A small robot car that finds its own way through a maze. Three ultrasonic sensors measure the walls ahead and to each side, and a Raspberry Pi Pico decides when to drive, correct and turn.</p>
+        <p class="pj-note">Built for Cornerstone of Engineering I at NU London with one teammate. I built the car, wrote all of its code and designed the sensor holder.</p>
       </section>
 
       <div class="pj-pair pj-pair-wide">
-        <figure class="pj-figure "><img src="/assets/autonomous-car.jpg" alt="The autonomous car: an acrylic chassis with three ultrasonic sensors and a lot of jumper wires" width="1200" height="992" loading="lazy" /><figcaption>Three ultrasonic sensors: one facing forward and one angled to each side.</figcaption></figure>
-        <figure class="pj-figure pj-tall "><video src="/assets/autonomous-car.mp4" poster="/assets/autonomous-car-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of the car driving itself"></video><figcaption>Driving itself.</figcaption></figure>
+        <figure class="pj-figure"><img src="/assets/car-sensors.jpg" alt="The car on a desk: an acrylic chassis with yellow wheels, three ultrasonic sensors at the front and wiring on top" width="1200" height="1600" /><figcaption>Three ultrasonic sensors: one ahead, one to each side.</figcaption></figure>
+        <figure class="pj-figure pj-tall"><video src="/assets/autonomous-car.mp4" poster="/assets/autonomous-car-video.jpg" muted loop playsinline controls preload="none" aria-label="Video of the car driving itself"></video><figcaption>Driving itself.</figcaption></figure>
       </div>
 
       <section class="pj-section">
-        <h2>How it works</h2>
-        <ol class="pj-steps"><li><b>Sensing.</b> The three sensors measure the distance ahead and to each side.</li><li><b>Deciding.</b> The Arduino compares the distances and turns toward whichever side has more room.</li><li><b>Driving.</b> A motor driver board sets the wheel motors&rsquo; speeds to steer.</li></ol>
+        <h2>Three challenges</h2>
+        <dl class="pj-facts">
+          <div><dt>1. A straight line</dt><dd>Drive straight for two seconds. Harder than it sounds: the two motors aren&rsquo;t identical, so the car drifts.</dd></div>
+          <div><dt>2. A pre-programmed maze</dt><dd>A fixed route of timed straights and turns. We measured every leg of the maze with rulers and turned the distances into run times.</dd></div>
+          <div><dt>3. A maze it navigates itself</dt><dd>No route given. The car reads its sensors and decides at every step where to go.</dd></div>
+        </dl>
+        <div class="pj-pair pj-cad">
+          <figure class="pj-figure"><img src="/assets/car-maze.jpg" alt="Part of the cardboard maze with a measuring stick laid along one wall" width="1000" height="750" loading="lazy" /><figcaption>Measuring the maze to plan the pre-programmed route.</figcaption></figure>
+          <figure class="pj-figure"><img src="/assets/car-wiring.jpg" alt="The car's wiring from above: the Pico, the motor driver, a battery pack and jumper wires" width="1000" height="1333" loading="lazy" style="aspect-ratio: 1400 / 1020; object-fit: cover" /><figcaption>The Pico, motor driver and batteries from above.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="pj-section">
+        <h2>How it finds its way</h2>
+        <div class="pj-split">
+          <ol class="pj-steps">
+            <li><b>Measure.</b> Each sensor sends a pulse of sound and times the echo. Distance is the time multiplied by the speed of sound, halved for the round trip.</li>
+            <li><b>Wall ahead?</b> Closer than 6 cm, the car stops and turns 90&deg; toward whichever side has more room, as long as that side has at least 10 cm.</li>
+            <li><b>Drifting?</b> Within 4 cm of a side wall, it nudges away with a short correction.</li>
+            <li><b>Clear?</b> Otherwise it drives forward, checking again every 50 milliseconds.</li>
+            <li><b>Out.</b> When both sides are over a metre away, it has left the maze and stops.</li>
+          </ol>
+          <figure class="pj-figure pj-code">
+<pre><code><span class="c"># front wall: turn toward the side with more room</span>
+if right &gt; 10 and right &gt; left and front &lt; 6:
+    turn_right()
+elif left &gt; 10 and left &gt; right and front &lt; 6:
+    turn_left()
+<span class="c"># too close to a side wall: nudge away</span>
+elif right &lt; 4 and front &gt; 6:
+    nudge_left()
+elif left &lt; 4 and front &gt; 6:
+    nudge_right()
+elif front &gt; 6:
+    forward()</code></pre>
+            <figcaption>The core of the navigation loop, simplified. Distances in cm.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="pj-section">
+        <h2>Problems we solved</h2>
+        <div class="pj-problems">
+          <article><h3>It wouldn&rsquo;t drive straight</h3><p>With the same power, one motor ran faster than the other and the car curved. Giving the slower motor about 4% more power evened them out.</p></article>
+          <article><h3>Turns weren&rsquo;t equal</h3><p>Turns are timed, not measured, and turning one way took longer than the other. We calibrated each direction separately: 0.535 seconds for one and 0.517 for the other to make a clean 90&deg;.</p></article>
+          <article><h3>Lost echoes</h3><p>When a sensor faces open space, the echo never comes back and the reading would hang. A 30-millisecond timeout treats no echo as &ldquo;far away&rdquo;, which is also how the car knows it has left the maze.</p></article>
+          <article><h3>Timing a route by hand</h3><p>For the pre-programmed maze, every leg was measured with rulers and converted into run times, then tuned run by run until the car stayed off the walls.</p></article>
+        </div>
       </section>
 
       <section class="pj-section">
         <h2>Sensor holder</h2>
         <p class="pj-text">A 3D-printed bracket holds the ultrasonic sensors at the front of the chassis, with a hole for the screw that fixes it to the car.</p>
-        <figure class="pj-figure"><img src="/assets/cad-ultrasonic-holder.jpg" alt="3D model of the ultrasonic sensor holder: a flat bracket with two round openings for the sensor transducers and a mounting tab with a screw hole" width="1400" height="1020" loading="lazy" /><figcaption>The sensor holder, modelled for 3D printing.</figcaption></figure>
+        <figure class="pj-figure pj-figure-narrow"><img src="/assets/cad-ultrasonic-holder.jpg" alt="3D model of the ultrasonic sensor holder: a flat bracket with two round openings for the sensor transducers and a mounting tab with a screw hole" width="1400" height="1020" loading="lazy" /><figcaption>The sensor holder, modelled for 3D printing.</figcaption></figure>
       </section>
 
       <section class="pj-section pj-stack">
         <h2>Built with</h2>
-        <p>Arduino, C++, ultrasonic sensors, a motor driver and an acrylic chassis.</p>
+        <p>Raspberry Pi Pico, MicroPython, three HC-SR04-style ultrasonic sensors, an L298N-style motor driver with PWM speed control, two DC gear motors, a battery pack and an acrylic chassis.</p>
       </section>
 
       <a class="pj-next" href="/swingiq"><span>Next project</span>SwingIQ &rarr;</a>

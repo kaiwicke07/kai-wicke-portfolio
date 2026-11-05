@@ -135,3 +135,10 @@
   .pj-trio, .pj-cad, .pj-problems { grid-template-columns: 1fr; }
   .pj-trio img, .pj-trio .pj-figure:first-child img { aspect-ratio: auto; }
 }
+
+.pj-code { background: var(--surface); padding: 20px 22px; overflow-x: auto; }
+.pj-code pre { margin: 0; font: 14px/1.6 ui-monospace, "Cascadia Mono", Consolas, monospace; color: var(--ink); }
+.pj-code .c { color: var(--accent); }
+.pj-code figcaption { margin-top: 12px; }
+.pj-facts + .pj-pair { margin-top: 36px; }
+.pj-figure-narrow { max-width: 760px; }
