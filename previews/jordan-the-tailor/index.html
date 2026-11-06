@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Jordan The Tailor · 271 Newbury Street, Boston</title>
+<meta name="description" content="Jordan The Tailor: tailoring, alterations and wedding gowns at 271 Newbury Street, Boston, since 1982. Boston Magazine Best of Boston, Best Tailor 2004.">
+<meta name="theme-color" content="#1f211d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Jordan The Tailor",
+  "telephone": "+1-617-536-2929",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "271 Newbury Street, Suite 2",
+    "addressLocality": "Boston",
+    "addressRegion": "MA",
+    "postalCode": "02116",
+    "addressCountry": "US"
+  },
+  "foundingDate": "1982",
+  "award": "Best of Boston, Best Tailor 2004 (Boston Magazine)",
+  "sameAs": ["https://www.facebook.com/Jordan-The-Tailor-191765987539159/"]
+}
+</script>
+<style>
+:root{
+  --wool:#1f211d;        /* charcoal suiting */
+  --wool-2:#2a2c27;
+  --chalk:#efebe1;       /* tailor's chalk */
+  --chalk-soft:#c9c4b6;
+  --paper:#e4dccb;       /* pattern paper */
+  --paper-2:#d8cdb6;
+  --ink:#1a1b18;
+  --tape:#f0c43a;        /* tape-measure yellow */
+  --tape-ink:#1a1b18;
+  --pin:#b3262d;         /* pin head red, used once */
+  --display:"Gloock", "Times New Roman", serif;
+  --text:"Instrument Sans", system-ui, sans-serif;
+  --gutter:20px;
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;-webkit-text-size-adjust:100%}
+body{background:var(--wool);color:var(--chalk);font-family:var(--text);font-size:17px;line-height:1.55;overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tape);outline-offset:3px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+@media (min-width:760px){:root{--gutter:40px}}
+
+/* preview banner */
+.banner{background:var(--tape);color:var(--tape-ink);font-size:13px;line-height:1.35;padding:8px var(--gutter);text-align:center;font-weight:500}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
+.mark{font-family:var(--display);font-size:22px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.nav ul{display:none;list-style:none;gap:28px}
+.nav ul a{text-decoration:none;font-size:15px;color:var(--chalk-soft)}
+.nav ul a:hover{color:var(--chalk)}
+@media (min-width:860px){.nav ul{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease, background-color .15s ease}
+.btn:active{transform:scale(.97)}
+.btn-tape{background:var(--tape);color:var(--tape-ink)}
+.btn-tape:hover{background:#f6d260}
+.btn-chalk{background:var(--chalk);color:var(--ink)}
+.btn-chalk:hover{background:#fff}
+.btn-ink{background:var(--ink);color:var(--chalk)}
+.btn-ink:hover{background:#000}
+.btn-small{min-height:40px;padding:0 16px;font-size:15px}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* hero */
+.hero{position:relative;padding-top:24px;padding-bottom:72px}
+.hero-grid{display:grid;gap:28px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(52px,15vw,124px);line-height:.97;letter-spacing:-.035em}
+.hero h1 span{display:block;white-space:nowrap}
+.hero .lede{margin-top:28px;font-size:19px;max-width:30ch;color:var(--chalk)}
+.hero .actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.hero-figure{position:relative;width:100%;max-width:520px;margin:0 auto}
+.hero-figure svg{width:100%;height:auto;display:block}
+.figcap{font-size:14px;color:var(--chalk-soft);margin-top:6px;text-align:center}
+@media (min-width:900px){
+  .hero{padding-top:48px;padding-bottom:140px}
+  .hero-grid{grid-template-columns:1.15fr .85fr;gap:40px}
+  .hero .lede{font-size:21px}
+}
+
+/* tape strip divider */
+.tape-strip{background:var(--tape);color:var(--tape-ink);height:44px;overflow:hidden}
+.tape-strip svg{display:block;height:44px;width:100%}
+
+/* services on pattern paper */
+.paper{background:var(--paper);color:var(--ink);position:relative}
+.services{padding-top:80px;padding-bottom:96px}
+.services h2,.visit h2,.method h2,.years h2{font-family:var(--display);font-weight:400;font-size:clamp(38px,8vw,76px);line-height:.98;letter-spacing:-.03em}
+.services .intro{margin-top:18px;font-size:19px;max-width:40ch}
+.svc{list-style:none;margin-top:48px;display:grid;gap:0}
+.svc li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:26px 0;position:relative}
+.svc li + li::before{content:"";position:absolute;left:0;right:0;top:0;border-top:2px dashed rgba(26,27,24,.35)}
+.svc h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,6vw,44px);line-height:1;letter-spacing:-.02em}
+.svc p{margin-top:8px;max-width:46ch}
+.svc .notch{width:44px;height:44px;margin-top:2px}
+.svc small{display:block;margin-top:8px;font-size:14px;color:#4a4a42}
+@media (min-width:900px){
+  .services{padding-top:150px;padding-bottom:160px}
+  .services-grid{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+  .svc{margin-top:0}
+  .svc li{grid-template-columns:56px 1fr;padding:32px 0}
+  .svc .notch{width:52px;height:52px}
+  .services-head{position:sticky;top:40px}
+}
+
+/* method / quote */
+.method{padding-top:96px;padding-bottom:96px}
+.method-grid{display:grid;gap:40px}
+.method blockquote{font-family:var(--display);font-size:clamp(22px,5vw,32px);line-height:1.18;letter-spacing:-.015em;max-width:24ch}
+.method cite{display:block;margin-top:16px;font-family:var(--text);font-style:normal;font-size:15px;color:var(--chalk-soft)}
+.method .steps{list-style:none;display:grid;gap:22px;margin-top:28px}
+.method .steps li{display:grid;grid-template-columns:28px 1fr;gap:14px;font-size:18px}
+.method .steps svg{width:28px;height:28px;margin-top:2px}
+.method .note{margin-top:20px;font-size:15px;color:var(--chalk-soft)}
+@media (min-width:900px){
+  .method{padding-top:170px;padding-bottom:170px}
+  .method-grid{grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+}
+
+/* years: the live tape */
+.years{background:var(--wool-2);padding:88px 0 96px}
+.years .intro{margin-top:16px;font-size:18px;max-width:44ch}
+.tape-box{margin-top:40px;position:relative}
+.tape-scroll{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:4px;cursor:grab}
+.tape-scroll::-webkit-scrollbar{display:none}
+.tape-scroll:active{cursor:grabbing}
+.tape-long{position:relative;width:2400px;height:150px;background:var(--tape);color:var(--tape-ink)}
+.tape-long svg{position:absolute;left:0;top:0;width:2400px;height:150px}
+.yr{position:absolute;top:58px;transform:translateX(-50%);scroll-snap-align:center;text-align:center;width:160px}
+.yr b{display:block;font-family:var(--display);font-weight:400;font-size:34px;line-height:1}
+.yr span{display:block;font-size:13px;line-height:1.3;margin-top:4px;font-weight:500}
+.tape-read{margin-top:26px;min-height:84px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline}
+.tape-read .big{font-family:var(--display);font-size:clamp(56px,13vw,96px);line-height:.9;letter-spacing:-.03em;color:var(--tape)}
+.tape-read p{font-size:18px;max-width:34ch}
+.tape-hint{display:flex;gap:10px;margin-top:18px}
+.tape-hint button{width:48px;height:48px;border-radius:999px;border:0;background:var(--chalk);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:transform .15s}
+.tape-hint button:active{transform:scale(.94)}
+.tape-hint svg{width:20px;height:20px}
+@media (min-width:900px){.years{padding:150px 0 160px}}
+
+/* visit */
+.visit{padding-top:84px;padding-bottom:96px}
+.visit-grid{display:grid;gap:36px}
+.addr{font-family:var(--display);font-size:clamp(44px,11vw,80px);line-height:.92;letter-spacing:-.035em}
+.addr-sub{font-family:var(--display);font-size:clamp(24px,5.5vw,34px);line-height:1.1;margin-top:14px}
+.facts{list-style:none;display:grid;gap:0;font-size:18px}
+.facts li{padding:18px 0;position:relative;display:grid;gap:4px}
+.facts li + li::before{content:"";position:absolute;left:0;right:0;top:0;border-top:2px dashed rgba(26,27,24,.35)}
+.facts b{font-weight:600}
+.facts a{font-weight:600;text-underline-offset:3px}
+.visit .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media (min-width:900px){
+  .visit{padding-top:150px;padding-bottom:150px}
+  .visit-grid{grid-template-columns:7fr 5fr;gap:72px;align-items:end}
+}
+
+/* footer */
+footer{padding:64px 0 40px}
+.foot-name{font-family:var(--display);font-size:clamp(40px,10.4vw,150px);line-height:.9;letter-spacing:-.04em}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;margin-top:28px;font-size:14px;color:var(--chalk-soft)}
+.foot-row a{color:var(--chalk)}
+
+/* mobile sticky call bar */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));background:var(--ink);transform:translateY(110%);transition:transform .25s ease}
+.callbar.on{transform:none}
+.callbar .btn{flex:1;min-height:48px;padding:0 12px}
+@media (min-width:900px){.callbar{display:none}}
+@media (max-width:899px){body{padding-bottom:76px}.tape-read{grid-template-columns:1fr;gap:8px}}
+
+/* motion */
+.rise{opacity:1;transform:none}
+.js .rise{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .rise.in{opacity:1;transform:none}
+.draw path.chalkline{stroke-dasharray:var(--len,1400);stroke-dashoffset:0}
+.js .draw path.chalkline{stroke-dashoffset:var(--len,1400);transition:stroke-dashoffset 1.8s cubic-bezier(.5,0,.2,1)}
+.js .draw.in path.chalkline{stroke-dashoffset:0}
+@media (prefers-reduced-motion:reduce){
+  .js .rise{opacity:1;transform:none;transition:none}
+  .js .draw path.chalkline{stroke-dashoffset:0;transition:none}
+  .callbar{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="banner">Free preview made for Jordan The Tailor by Kai Wicke · not the official site yet</div>
+
+<header class="wrap nav">
+  <a class="mark" href="#top">Jordan The Tailor</a>
+  <ul>
+    <li><a href="#services">What we do</a></li>
+    <li><a href="#fitting">The fitting</a></li>
+    <li><a href="#years">Since 1982</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="btn btn-tape btn-small" href="tel:+16175362929">Call</a>
+</header>
+
+<main id="top">
+<section class="hero wrap" aria-labelledby="h1">
+  <div class="hero-grid">
+    <div>
+      <h1 id="h1" class="rise"><span>Jordan</span><span>The Tailor</span></h1>
+      <p class="lede rise">Tailoring, alterations and wedding gowns on Newbury Street since 1982.</p>
+      <div class="actions rise">
+        <a class="btn btn-tape" href="tel:+16175362929">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          Call 617-536-2929</a>
+        <a class="btn btn-chalk" href="https://www.google.com/maps/search/?api=1&amp;query=Jordan+The+Tailor+271+Newbury+Street+Boston" target="_blank" rel="noopener">Directions</a>
+      </div>
+    </div>
+    <figure class="hero-figure draw" aria-label="A jacket front pattern piece marked out in tailor's chalk">
+      <svg viewBox="0 0 420 470" role="img" aria-hidden="true">
+        <defs>
+          <pattern id="pin" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#262823"/><rect x="0" width="1.4" height="14" fill="#33352f"/></pattern>
+        </defs>
+        <rect width="420" height="470" fill="url(#pin)"/>
+        <!-- jacket front piece -->
+        <path class="chalkline" pathLength="1400" style="--len:1400" d="M120 40 L210 28 L236 70 L300 96 L330 118 L338 230 L352 420 L150 440 L92 432 L70 300 L58 170 L84 120 Z" fill="none" stroke="#efebe1" stroke-width="3.5" stroke-linejoin="round"/>
+        <!-- seam allowance -->
+        <path d="M128 56 L204 46 L226 82 L290 108 L316 128 L323 232 L336 404 L154 424 L104 418 L84 298 L74 174 L98 130 Z" fill="none" stroke="#efebe1" stroke-opacity=".55" stroke-width="2" stroke-dasharray="7 7"/>
+        <!-- lapel roll line -->
+        <path class="chalkline" pathLength="1400" style="--len:1400" d="M210 28 C190 120 150 200 128 300" fill="none" stroke="#efebe1" stroke-width="2.5"/>
+        <!-- dart -->
+        <path d="M250 250 L262 380 L274 250" fill="none" stroke="#efebe1" stroke-width="2.5"/>
+        <!-- grain line -->
+        <path d="M200 170 L200 380 M192 182 L200 168 L208 182 M192 368 L200 382 L208 368" fill="none" stroke="#f0c43a" stroke-width="2.5"/>
+        <!-- buttons -->
+        <g fill="none" stroke="#efebe1" stroke-width="2.5"><path d="M114 318 l10 10 m0 -10 l-10 10"/><path d="M118 368 l10 10 m0 -10 l-10 10"/></g>
+        <!-- notches -->
+        <g stroke="#efebe1" stroke-width="3"><path d="M60 236 l14 -2"/><path d="M342 300 l-14 1"/></g>
+        <!-- pocket -->
+        <path d="M238 330 L318 322" stroke="#efebe1" stroke-width="2.5"/>
+        <!-- chalk notes -->
+        <g font-family="Instrument Sans, sans-serif" font-style="italic" fill="#efebe1" font-size="17">
+          <text x="214" y="214" transform="rotate(-90 214 214)">grain</text>
+          <text x="236" y="404">take in ½</text>
+          <text x="96" y="462">let out ¼</text>
+        </g>
+        <!-- pins -->
+        <g><line x1="320" y1="150" x2="352" y2="186" stroke="#c9c4b6" stroke-width="2"/><circle cx="318" cy="148" r="6" fill="#b3262d"/></g>
+        <g><line x1="90" y1="96" x2="126" y2="80" stroke="#c9c4b6" stroke-width="2"/><circle cx="88" cy="97" r="6" fill="#b3262d"/></g>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<div class="tape-strip" aria-hidden="true">
+  <svg id="tapeStrip" preserveAspectRatio="xMinYMid slice" viewBox="0 0 1600 44"></svg>
+</div>
+
+<section id="services" class="paper" aria-labelledby="svc-h">
+  <div class="wrap services services-grid">
+    <div class="services-head">
+      <h2 id="svc-h" class="rise">Bring it in.<br>Leave it fitted.</h2>
+      <p class="intro rise">Clothes off the rack rarely fit like they should. This is a Newbury Street workroom for getting them right.</p>
+    </div>
+    <ul class="svc">
+      <li class="rise">
+        <svg class="notch" viewBox="0 0 52 52" aria-hidden="true"><path d="M8 44 C14 20 26 8 44 8" fill="none" stroke="#1a1b18" stroke-width="3"/><path d="M8 44 L20 44" stroke="#1a1b18" stroke-width="3"/><circle cx="44" cy="8" r="4" fill="#1a1b18"/></svg>
+        <div><h3>Wedding gowns</h3><p>Gowns are a speciality of the shop. Bring yours in and talk through the fit you want for the day.</p></div>
+      </li>
+      <li class="rise">
+        <svg class="notch" viewBox="0 0 52 52" aria-hidden="true"><path d="M6 26 H46" stroke="#1a1b18" stroke-width="3" stroke-dasharray="6 5"/><path d="M14 14 L26 26 L14 38" fill="none" stroke="#1a1b18" stroke-width="3"/></svg>
+        <div><h3>Alterations</h3><p>Sewing and alterations for the clothes you already own, so they fit you instead of the hanger.</p></div>
+      </li>
+      <li class="rise">
+        <svg class="notch" viewBox="0 0 52 52" aria-hidden="true"><rect x="6" y="18" width="40" height="16" fill="#1a1b18"/><g stroke="#e4dccb" stroke-width="2"><path d="M12 18v6M18 18v4M24 18v6M30 18v4M36 18v6M42 18v4"/></g></svg>
+        <div><h3>Expert tailoring</h3><p>Cut and sewn to your exact measurements, after questions about how you want each piece to fit.</p></div>
+      </li>
+      <li class="rise">
+        <svg class="notch" viewBox="0 0 52 52" aria-hidden="true"><line x1="10" y1="42" x2="38" y2="14" stroke="#1a1b18" stroke-width="3"/><circle cx="40" cy="12" r="6" fill="#b3262d"/></svg>
+        <div><h3>Attention to detail</h3><p>Personal attention on every piece, from the first fitting to the last stitch.</p><small>Not sure if a garment can be fixed? Call and ask.</small></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="fitting" class="method" aria-labelledby="fit-h">
+  <div class="wrap method-grid">
+    <div>
+      <h2 id="fit-h" class="rise">How a fitting goes</h2>
+      <ul class="steps">
+        <li class="rise"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 14 h20" stroke="#f0c43a" stroke-width="3" stroke-dasharray="4 3"/></svg><span>You're sized up at a glance: proportions first.</span></li>
+        <li class="rise"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 14 h20" stroke="#f0c43a" stroke-width="3" stroke-dasharray="4 3"/></svg><span>Then the questions: how you want it to sit, where, and how close.</span></li>
+        <li class="rise"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 14 h20" stroke="#f0c43a" stroke-width="3" stroke-dasharray="4 3"/></svg><span>Then it's cut and sewn to your measurements.</span></li>
+      </ul>
+      <p class="note rise">As described by Boston Magazine, Best of Boston 2004.</p>
+    </div>
+    <div>
+      <blockquote class="rise">“You can shop off the rack, but that doesn’t necessarily mean your clothes will fit off the rack.”
+        <cite>— Boston Magazine, Best of Boston 2004: Best Tailor</cite></blockquote>
+      <blockquote class="rise" style="margin-top:44px">“excellent workmanship!!!!”
+        <cite>— Facebook review, via Birdeye</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="years" class="years" aria-labelledby="yrs-h">
+  <div class="wrap">
+    <h2 id="yrs-h" class="rise">Measured in years</h2>
+    <p class="intro rise">Pull the tape. Each inch is a year on Newbury Street.</p>
+    <div class="tape-box rise">
+      <div class="tape-scroll" id="tapeScroll" tabindex="0" role="region" aria-label="Tape measure timeline, scroll sideways">
+        <div class="tape-long" id="tapeLong">
+          <svg id="tapeTicks" viewBox="0 0 2400 150" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <div class="tape-hint">
+        <button type="button" id="tapePrev" aria-label="Back along the tape"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" id="tapeNext" aria-label="Forward along the tape"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <div class="tape-read" aria-live="polite">
+        <div class="big" id="readYear">1982</div>
+        <p id="readText">Jordan The Tailor starts serving the Newbury Street community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="paper" aria-labelledby="visit-h">
+  <div class="wrap visit visit-grid">
+    <div>
+      <h2 id="visit-h" class="rise">Visit the shop</h2>
+      <p class="addr rise" style="margin-top:28px">271 Newbury Street</p><p class="addr-sub rise">Suite 2 · Boston, MA 02116</p>
+    </div>
+    <div>
+      <ul class="facts">
+        <li class="rise"><b>Hours</b><span>Call for hours before you come in.</span></li>
+        <li class="rise"><b>Phone</b><a href="tel:+16175362929">617-536-2929</a></li>
+        <li class="rise"><b>Follow</b><a href="https://www.facebook.com/Jordan-The-Tailor-191765987539159/" target="_blank" rel="noopener">Jordan The Tailor on Facebook</a></li>
+      </ul>
+      <div class="actions rise">
+        <a class="btn btn-ink" href="tel:+16175362929">Call the shop</a>
+        <a class="btn btn-tape" href="https://www.google.com/maps/search/?api=1&amp;query=Jordan+The+Tailor+271+Newbury+Street+Boston" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p class="foot-name" aria-hidden="true">Jordan The Tailor</p>
+  <div class="foot-row">
+    <span>271 Newbury Street, Suite 2, Boston · <a href="tel:+16175362929">617-536-2929</a></span>
+    <span>Site preview by Kai Wicke · <a href="https://kai-wicke-portfolio.vercel.app/web-design">kai-wicke-portfolio.vercel.app/web-design</a></span>
+  </div>
+</footer>
+
+<div class="callbar" id="callbar">
+  <a class="btn btn-tape" href="tel:+16175362929">Call</a>
+  <a class="btn btn-chalk" href="https://www.google.com/maps/search/?api=1&amp;query=Jordan+The+Tailor+271+Newbury+Street+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+
+  // thin tape strip under hero
+  var strip=document.getElementById("tapeStrip");
+  for(var i=0;i<=200;i++){
+    var x=i*8, h=i%8===0?22:(i%4===0?15:9);
+    strip.appendChild(el("line",{x1:x,y1:0,x2:x,y2:h,stroke:"#1a1b18","stroke-width":i%8===0?2:1.2}));
+    if(i%8===0&&i>0){var t=el("text",{x:x+4,y:38,"font-size":13,"font-family":"Instrument Sans, sans-serif","font-weight":600,fill:"#1a1b18"});t.textContent=i/8;strip.appendChild(t);}
+  }
+
+  // long tape: one inch (50px) per year, 1980 to 2026
+  var START=1980, END=new Date().getFullYear(), PX=50, PAD=720;
+  var long=document.getElementById("tapeLong"), ticks=document.getElementById("tapeTicks");
+  var W=PAD*2+(END-START)*PX; long.style.width=W+"px"; ticks.setAttribute("viewBox","0 0 "+W+" 150"); ticks.style.width=W+"px";
+  for(var y=START*8;y<=END*8;y++){
+    var px=PAD+(y/8-START)*PX, whole=y%8===0, half=y%4===0;
+    var hh=whole?40:(half?26:14);
+    ticks.appendChild(el("line",{x1:px,y1:0,x2:px,y2:hh,stroke:"#1a1b18","stroke-width":whole?2:1.2}));
+    ticks.appendChild(el("line",{x1:px,y1:150,x2:px,y2:150-hh*.6,stroke:"#1a1b18","stroke-width":whole?2:1.2}));
+  }
+  var marks=[
+    {y:1982,t:"Opens",d:"Jordan The Tailor starts serving the Newbury Street community."},
+    {y:2004,t:"Best Tailor",d:"Boston Magazine names Jordan The Tailor Best Tailor in Best of Boston 2004."},
+    {y:END,t:"271 Newbury",d:"Still on Newbury Street, now at number 271, Suite 2."}
+  ];
+  marks.forEach(function(m){
+    var d=document.createElement("div"); d.className="yr"; d.style.left=(PAD+(m.y-START)*PX)+"px";
+    d.innerHTML="<b>"+m.y+"</b><span>"+m.t+"</span>"; long.appendChild(d);
+    ticks.appendChild(el("circle",{cx:PAD+(m.y-START)*PX,cy:46,r:5,fill:"#b3262d"}));
+  });
+  var sc=document.getElementById("tapeScroll"), ry=document.getElementById("readYear"), rt=document.getElementById("readText");
+  function read(){
+    var center=sc.scrollLeft+sc.clientWidth/2, year=Math.round(START+(center-PAD)/PX);
+    year=Math.max(1982,Math.min(END,year));
+    ry.textContent=year;
+    var hit=null; marks.forEach(function(m){ if(year>=m.y) hit=m; });
+    var n=year-1982;
+    rt.textContent = (marks.some(function(m){return m.y===year})) ? hit.d : (n===0?hit.d:n+(n===1?" year":" years")+" on Newbury Street.");
+  }
+  sc.addEventListener("scroll",function(){requestAnimationFrame(read)},{passive:true});
+  function step(dir){
+    var center=sc.scrollLeft+sc.clientWidth/2, year=START+(center-PAD)/PX, target;
+    if(dir>0){ target=marks.filter(function(m){return m.y>year+0.5})[0]; }
+    else { var prev=marks.filter(function(m){return m.y<year-0.5}); target=prev[prev.length-1]; }
+    if(!target) return;
+    sc.scrollTo({left:PAD+(target.y-START)*PX-sc.clientWidth/2,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+  }
+  document.getElementById("tapeNext").onclick=function(){step(1)};
+  document.getElementById("tapePrev").onclick=function(){step(-1)};
+  sc.addEventListener("keydown",function(e){if(e.key==="ArrowRight"){e.preventDefault();step(1)}if(e.key==="ArrowLeft"){e.preventDefault();step(-1)}});
+  // mouse drag
+  var down=false,sx=0,sl=0;
+  sc.addEventListener("mousedown",function(e){down=true;sx=e.pageX;sl=sc.scrollLeft;});
+  window.addEventListener("mouseup",function(){down=false});
+  window.addEventListener("mousemove",function(e){if(down){sc.scrollLeft=sl-(e.pageX-sx);}});
+  function start(){ sc.scrollLeft=PAD+(1982-START)*PX-sc.clientWidth/2; read(); }
+  start(); window.addEventListener("load",start);
+
+  // entrances
+  document.documentElement.classList.add("js");
+  var items=[].slice.call(document.querySelectorAll(".rise,.draw"));
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      var sib=[].slice.call(e.target.parentNode.children).filter(function(c){return c.classList.contains("rise")});
+      var i=Math.max(0,sib.indexOf(e.target)); e.target.style.transitionDelay=(i*75)+"ms";
+      e.target.classList.add("in"); io.unobserve(e.target);}})},{rootMargin:"0px 0px -8% 0px"});
+    items.forEach(function(i){io.observe(i)});
+  } else items.forEach(function(i){i.classList.add("in")});
+
+  // sticky call bar after hero
+  var bar=document.getElementById("callbar"), hero=document.querySelector(".hero");
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){bar.classList.toggle("on",!es[0].isIntersecting)}).observe(hero);
+  }
+})();
+</script>
+</body>
+</html>

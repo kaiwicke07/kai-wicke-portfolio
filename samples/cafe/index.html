@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Thimble Oven · Roslindale bakery (sample site)</title>
+<meta name="description" content="Sample website by Kai Wicke for a fictional bakery and coffee counter in Roslindale Village, Boston.">
+<meta name="theme-color" content="#38450f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@300;400&family=Stack+Sans+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ecebe7;
+  --surface:#e1dfd9;
+  --surface-2:#d6d3ca;
+  --ink:#38450f;
+  --muted:#5d683a;
+  --deep:#252e08;
+  --field:#38450f;
+  --field-ink:#ecebe7;
+  --field-soft:#c9cdb4;
+  --field-input:#4a5a1a;
+  --fire:#e7a640;
+  --fire-hot:#f3cf73;
+  --m:clamp(16px, 2.2vw, 32px);
+  --gap:12px;
+  --ribbon:34px;
+  --step-small:clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body:clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead:clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head:clamp(2.25rem, 1.3rem + 3.4vw, 4.25rem);
+  --step-display:clamp(4.4rem, 1rem + 9.6vw, 10rem);
+  --display:"Stack Sans Headline", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --text:"Stack Sans Text", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --arch:999px 999px 0 0;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--ribbon) + 64px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:var(--step-body);line-height:1.5;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:300;letter-spacing:-0.022em;line-height:1.05;margin:0}
+p{margin:0;max-width:68ch}
+::selection{background:var(--ink);color:var(--bg)}
+:focus-visible{outline:3px solid var(--fire);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{padding-inline:var(--m)}
+
+/* ribbon */
+.ribbon{position:sticky;top:0;z-index:50;height:var(--ribbon);display:flex;align-items:center;justify-content:center;background:var(--deep);color:var(--field-ink);font-size:var(--step-small);padding-inline:12px;text-align:center}
+.ribbon a{text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ribbon a span{text-decoration:underline;text-underline-offset:3px}
+.ribbon a:hover span{text-decoration-thickness:2px}
+
+/* buttons: the oven mouth, in pill form */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:500;font-size:1.0625rem;text-decoration:none;border:0;cursor:pointer;transition:transform .18s var(--ease),background-color .18s}
+.btn:hover{background:var(--deep)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:var(--surface-2);color:var(--ink)}
+.btn.ghost:hover{background:#cbc7bc}
+.btn.light{background:var(--field-ink);color:var(--ink)}
+.btn.light:hover{background:#fff}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px var(--m)}
+.mark{white-space:nowrap;display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:400;font-size:1.375rem;letter-spacing:-0.02em}
+.mark i{display:block;width:20px;height:26px;border-radius:var(--arch);background:var(--ink)}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:2px;text-underline-offset:6px;font-weight:500;padding:6px 0;transition:text-decoration-color .2s}
+.nav ul a:hover{text-decoration-color:currentColor}
+.nav .btn{min-height:44px;padding:0 20px}
+@media (max-width:820px){.nav ul{display:none}.nav .btn{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);padding:0 var(--m);min-height:calc(100svh - var(--ribbon) - 72px)}
+.card{background:var(--surface);display:flex;flex-direction:column;overflow:hidden}
+.stripes{display:flex;height:56px;flex:none}
+.stripes span{flex:1 0 28px;background:var(--ink)}
+.stripes span:nth-child(even){background:var(--surface)}
+.card-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4vw,64px)}
+.hero h1{font-size:var(--step-display);line-height:.9;letter-spacing:-0.04em;margin-left:-0.04em}
+.hero .lede{margin-top:32px;font-size:var(--step-lead);line-height:1.35;max-width:30ch}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.status{margin-top:36px;display:grid;gap:6px;font-size:var(--step-body)}
+.status-line{display:flex;align-items:center;gap:10px;font-weight:600}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--muted);flex:none}
+.is-open .dot{background:#4f7d1c;animation:pulse 2.4s ease-in-out infinite}
+.status .next{color:var(--ink)}
+@keyframes pulse{50%{opacity:.35}}
+
+.oven{position:relative;background:var(--field);overflow:hidden;min-height:440px}
+.oven svg{position:absolute;inset:0;width:100%;height:100%}
+.glow{transform-origin:50% 100%;animation:breathe 5.5s ease-in-out infinite}
+.glow-2{transform-origin:50% 100%;animation:breathe 4.2s ease-in-out infinite reverse}
+@keyframes breathe{50%{transform:scale(1.035,1.06);opacity:.86}}
+.oven-tag{position:absolute;left:clamp(16px,3vw,40px);top:clamp(16px,3vw,40px);color:var(--field-ink);font-size:var(--step-small);max-width:22ch;line-height:1.35}
+.oven-tag b{display:block;font-family:var(--display);font-weight:300;font-size:clamp(2rem,1rem + 2.4vw,3.25rem);line-height:1;letter-spacing:-0.03em;margin-bottom:6px;font-variant-numeric:tabular-nums}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .oven{order:-1;height:40svh;min-height:260px}
+  .card{margin-top:-24px;position:relative;margin-inline:10px}
+  .stripes{height:40px}
+  .card-body{padding:28px 22px 30px}
+  .hero h1{font-size:clamp(4rem,20vw,6rem)}
+  .hero .lede{margin-top:20px;font-size:1.1875rem}
+  .actions .btn{flex:1 1 100%}
+}
+
+/* sections */
+section{scroll-margin-top:calc(var(--ribbon) + 8px)}
+.sec{padding-block:clamp(88px,12vw,180px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sec-head h2{font-size:var(--step-head)}
+.sec-head p{max-width:40ch}
+
+/* menu */
+.filters{position:sticky;top:var(--ribbon);z-index:20;background:var(--bg);margin-top:32px;padding:12px 0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:none;min-height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--surface);font-weight:500;cursor:pointer;transition:background-color .18s,transform .18s var(--ease)}
+.filters button:hover{background:var(--surface-2)}
+.filters button:active{transform:scale(.96)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.filters button span{font-variant-numeric:tabular-nums;opacity:.7;margin-left:6px}
+.cat{padding-top:clamp(80px,8vw,112px)}
+.cat[hidden]{display:none}
+.cat-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:36px}
+.cat-head h3{font-size:clamp(2rem,1.2rem + 2.6vw,3.25rem)}
+.cat-head span{color:var(--muted)}
+.items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;row-gap:36px}
+.item{display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start}
+.glyph{width:64px;height:76px;border-radius:var(--arch);background:var(--surface);display:grid;place-items:end center;padding-bottom:8px}
+.glyph svg{width:46px;height:46px}
+.item-top{display:flex;flex-wrap:wrap;justify-content:space-between;column-gap:16px;align-items:baseline}
+.item > div{min-width:0}
+.item-top b{font-weight:600;font-size:1.125rem}
+.item-top em{font-style:normal;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.item p{margin-top:4px;font-size:1rem;max-width:40ch}
+.item small{display:block;margin-top:6px;font-size:var(--step-small);color:var(--muted);font-weight:500}
+.menu-note{margin-top:56px;font-size:1rem;color:var(--muted);max-width:60ch}
+@media (max-width:820px){
+  .items{grid-template-columns:1fr;row-gap:28px}
+  .item{grid-template-columns:52px 1fr;gap:16px}
+  .glyph{width:52px;height:62px;padding-bottom:6px}
+  .glyph svg{width:38px;height:38px}
+  .cat-head{margin-bottom:24px}
+  .filters{flex-wrap:wrap;overflow:visible;gap:6px}
+  .filters button{min-height:42px;padding:0 14px}
+}
+
+/* tray band */
+.band{margin-top:clamp(88px,12vw,180px);background:var(--field);color:var(--field-ink);padding:clamp(64px,8vw,120px) var(--m)}
+.band-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end}
+.band h2{font-size:var(--step-head)}
+.band-top p{max-width:42ch;justify-self:end}
+.trays{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap);align-items:end}
+.tray{border-radius:var(--arch);background:var(--field-input);padding:56px 18px 24px;display:flex;flex-direction:column;justify-content:flex-end;min-height:var(--h,260px);transition:background-color .3s,transform .3s var(--ease)}
+.tray:nth-child(1){--h:240px}.tray:nth-child(2){--h:280px}.tray:nth-child(3){--h:320px}.tray:nth-child(4){--h:300px}.tray:nth-child(5){--h:270px}.tray:nth-child(6){--h:250px}
+.tray time{font-family:var(--display);font-size:clamp(1.75rem,1rem + 1.6vw,2.625rem);letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tray b{display:block;margin-top:10px;font-weight:500;line-height:1.3}
+.tray span{display:block;margin-top:8px;font-size:var(--step-small);color:var(--field-soft)}
+.tray.done{background:#2f3a0c;color:var(--field-soft)}
+.tray.next{background:var(--fire);color:var(--deep)}
+.tray.next span{color:var(--deep)}
+@media (max-width:1000px){.trays{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:820px){
+  .band-top{grid-template-columns:1fr}
+  .band-top p{justify-self:start}
+  .trays{grid-template-columns:1fr;gap:8px;margin-top:36px}
+  .tray{min-height:0;border-radius:999px 28px 28px 999px;flex-direction:row;align-items:center;gap:16px;padding:16px 22px 16px 26px}
+  .tray time{font-size:1.75rem;min-width:4.2ch}
+  .tray b{margin:0}
+  .tray div{flex:1}
+  .tray span{margin-top:2px}
+}
+
+/* story */
+.story{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,112px);align-items:center}
+.story-art{background:var(--surface);aspect-ratio:400/560;border-radius:var(--arch);overflow:hidden}
+.story-art svg{width:100%;height:100%}
+.story h2{font-size:var(--step-head);max-width:12ch}
+.story .lead{margin-top:28px;font-size:var(--step-lead);line-height:1.4;max-width:30ch}
+.story-cols{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.story-cols h3{font-family:var(--text);font-weight:600;font-size:1.25rem;letter-spacing:0;line-height:1.3;margin-bottom:8px}
+.story-cols p{font-size:1rem}
+@media (max-width:820px){
+  .story{grid-template-columns:1fr}
+  .story-art{order:2;width:86%;margin-inline:auto}
+  .story-cols{grid-template-columns:1fr;gap:24px;margin-top:36px}
+}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:48px}
+.hours-panel{background:var(--surface);padding:clamp(24px,3.5vw,56px)}
+.now{font-family:var(--display);font-size:clamp(1.75rem,1rem + 2vw,2.75rem);letter-spacing:-0.025em;line-height:1.1}
+.now-sub{margin-top:10px}
+table{width:100%;border-collapse:collapse;margin-top:32px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:13px 0;border-bottom:1px solid var(--surface-2);font-weight:400}
+td{text-align:right}
+tr.today th,tr.today td{font-weight:600}
+tr.today th::before{content:"";display:inline-block;width:10px;height:13px;border-radius:var(--arch);background:var(--ink);margin-right:10px}
+.addr{margin-top:32px;font-size:var(--step-lead);line-height:1.35}
+.visit .actions{margin-top:24px}
+.map{background:var(--surface-2);position:relative;min-height:420px;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+@media (max-width:820px){.visit{grid-template-columns:1fr}.map{min-height:0;aspect-ratio:600/620}}
+
+/* catering coupon */
+.coupon{--notch:28px;margin-top:48px;background:var(--field);color:var(--field-ink);display:grid;grid-template-columns:46fr 54fr;position:relative;}
+.coupon::before,.coupon::after{content:"";position:absolute;width:calc(var(--notch)*2);height:calc(var(--notch)*2);border-radius:50%;background:var(--bg);left:calc(46% - var(--notch) - 3px);top:calc(var(--notch)*-1)}
+.coupon::after{top:auto;bottom:calc(var(--notch)*-1)}
+.coupon{overflow:hidden}
+.coupon-left{padding:clamp(28px,4vw,64px);display:flex;flex-direction:column;justify-content:space-between;gap:40px;border-right:6px dotted var(--bg)}
+.coupon h2{font-size:clamp(2.25rem,1.2rem + 2.8vw,3.75rem)}
+.coupon-left ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.coupon-left li{display:flex;gap:12px;align-items:baseline}
+.coupon-left li::before{content:"";flex:none;width:9px;height:12px;border-radius:var(--arch);background:var(--fire);transform:translateY(1px)}
+.coupon form{padding:clamp(28px,4vw,64px);display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.field{display:grid;gap:6px}
+.field.wide{grid-column:1/-1}
+.field label{font-size:var(--step-small);color:var(--field-soft);font-weight:500}
+.field input,.field select,.field textarea{width:100%;min-height:54px;padding:14px 16px;background:var(--field-input);border:2px solid transparent;border-radius:0;font-size:16px;color:var(--field-ink);transition:border-color .18s}
+.field textarea{min-height:112px;resize:vertical}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23ecebe7' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.field input::placeholder,.field textarea::placeholder{color:#b9bf9f}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--fire)}
+.field input:user-invalid{border-color:#f0b9a0}
+.coupon .submit{grid-column:1/-1;min-height:58px;border-radius:0;background:var(--deep);color:var(--field-ink);margin-top:6px}
+.coupon .submit:hover{background:#1a2105}
+.thanks{grid-column:1/-1;background:var(--fire);color:var(--deep);padding:22px 24px;font-size:1.0625rem}
+.thanks b{display:block;font-size:1.25rem;margin-bottom:4px}
+.thanks button{margin-top:14px;background:none;border:0;padding:0;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer;color:var(--deep)}
+@media (max-width:820px){
+  .coupon{grid-template-columns:1fr;}
+  .coupon::before,.coupon::after{left:calc(var(--notch)*-1);top:calc(var(--cut,300px) - var(--notch) - 3px);bottom:auto}
+  .coupon::after{left:auto;right:calc(var(--notch)*-1)}
+  .coupon-left{border-right:0;border-bottom:6px dotted var(--bg);padding:28px 22px 32px}
+  .coupon form{grid-template-columns:1fr;padding:30px 22px 26px}
+}
+
+/* footer */
+footer{margin-top:clamp(88px,12vw,180px);background:var(--field);color:var(--field-ink);padding:clamp(48px,6vw,88px) var(--m) 28px}
+.blocks{display:flex;gap:4px;align-items:flex-end;height:34svh;min-height:180px}
+.blocks .row{display:flex;gap:4px;align-items:flex-end;height:100%;flex:var(--n)}
+.blocks span{flex:1;height:var(--b,100%);background:var(--field-ink);color:var(--field);border-radius:var(--arch);display:flex;align-items:flex-end;justify-content:center;padding-bottom:4%;font-family:var(--display);font-weight:400;font-size:clamp(2rem,6.4vw,6.5rem);line-height:.8;letter-spacing:0}
+.blocks .row + .row{margin-left:clamp(12px,2vw,32px)}
+.foot-grid{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr) 2fr;gap:32px}
+.foot-grid h3{font-family:var(--text);font-weight:600;font-size:1rem;letter-spacing:0;margin-bottom:10px;color:var(--field-soft)}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.9375rem}
+.foot-grid a{text-decoration:none}
+.foot-grid a:hover{text-decoration:underline;text-underline-offset:3px}
+.foot-grid address{font-style:normal;font-size:.9375rem}
+.foot-last{margin-top:56px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:var(--step-small);color:var(--field-soft)}
+.foot-last a{color:var(--field-ink)}
+@media (max-width:820px){
+  .blocks{flex-direction:column;align-items:stretch;height:auto;min-height:0}
+  .blocks .row{height:15svh;min-height:84px;flex:none}
+  .blocks .row + .row{margin-left:0;width:62%}
+  .blocks span{font-size:clamp(2rem,11vw,4rem)}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+  .foot-grid .contact{grid-column:1/-1}
+}
+
+/* phone call bar */
+.callbar{display:none}
+@media (max-width:820px){
+  body{padding-bottom:76px}
+  .callbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--deep)}
+  .callbar .btn{flex:1;min-height:50px;padding:0 12px}
+}
+
+/* entrances, only when JS is on */
+.js .rise{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
+.js .rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rise{opacity:1;transform:none;transition:none}
+  .glow,.glow-2,.is-open .dot{animation:none}
+  .btn,.filters button,.tray{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon"><a href="https://kai-wicke-portfolio.vercel.app/web-design"><span>Sample site by Kai Wicke</span> · fictional business</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="g-cup" viewBox="0 0 48 48"><path d="M9 18h26v9a13 13 0 0 1-26 0z" fill="#38450f"/><path d="M35 21h3a5 5 0 0 1 0 10h-4" fill="none" stroke="#38450f" stroke-width="3.5"/><path d="M17 6c-2 3 2 5 0 8M24 6c-2 3 2 5 0 8" fill="none" stroke="#38450f" stroke-width="2.5" stroke-linecap="round"/><rect x="6" y="41" width="32" height="3.5" rx="1.75" fill="#38450f"/></symbol>
+    <symbol id="g-tea" viewBox="0 0 48 48"><path d="M8 20h28l-2 14a6 6 0 0 1-6 5H16a6 6 0 0 1-6-5z" fill="#38450f"/><path d="M36 23h2.5a4.5 4.5 0 0 1 0 9H34" fill="none" stroke="#38450f" stroke-width="3.5"/><path d="M22 20V9" stroke="#38450f" stroke-width="2"/><rect x="18" y="5" width="8" height="6" fill="#38450f"/></symbol>
+    <symbol id="g-croissant" viewBox="0 0 48 48"><g fill="#38450f" stroke="#e1dfd9" stroke-width="2"><ellipse cx="6" cy="33" rx="4" ry="7" transform="rotate(-62 6 33)"/><ellipse cx="42" cy="33" rx="4" ry="7" transform="rotate(62 42 33)"/><ellipse cx="13" cy="28" rx="6" ry="10" transform="rotate(-38 13 28)"/><ellipse cx="35" cy="28" rx="6" ry="10" transform="rotate(38 35 28)"/><ellipse cx="24" cy="25" rx="8" ry="12"/></g></symbol>
+    <symbol id="g-bun" viewBox="0 0 48 48"><circle cx="24" cy="26" r="18" fill="#38450f"/><path d="M24 26a3 3 0 1 1 3 3 7 7 0 1 1-8-8 11 11 0 1 1 13 13" fill="none" stroke="#ecebe7" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="g-loaf" viewBox="0 0 48 48"><path d="M3 34c0-12 10-20 21-20s21 8 21 20c0 3-2 5-5 5H8c-3 0-5-2-5-5z" fill="#38450f"/><path d="M13 30l6-9M22 31l6-10M31 31l5-8" stroke="#ecebe7" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="g-cookie" viewBox="0 0 48 48"><circle cx="24" cy="26" r="18" fill="#38450f"/><circle cx="17" cy="21" r="2.6" fill="#ecebe7"/><circle cx="29" cy="18" r="2.2" fill="#ecebe7"/><circle cx="30" cy="31" r="2.8" fill="#ecebe7"/><circle cx="19" cy="33" r="2" fill="#ecebe7"/><circle cx="24" cy="26" r="1.6" fill="#ecebe7"/></symbol>
+    <symbol id="g-scone" viewBox="0 0 48 48"><path d="M6 40L24 8l18 32z" fill="#38450f"/><circle cx="20" cy="30" r="2" fill="#ecebe7"/><circle cx="28" cy="27" r="2" fill="#ecebe7"/><circle cx="24" cy="20" r="2" fill="#ecebe7"/></symbol>
+    <symbol id="g-donut" viewBox="0 0 48 48"><circle cx="24" cy="26" r="18" fill="#38450f"/><circle cx="24" cy="26" r="6" fill="#e1dfd9"/><path d="M12 18l2 1M33 15l1 2M36 31l-2 1M16 35l1-2M24 11v2" stroke="#ecebe7" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="g-leaf" viewBox="0 0 48 48"><path d="M24 6c10 6 14 14 12 22-1 6-6 10-12 12-6-2-11-6-12-12-2-8 2-16 12-22z" fill="#38450f"/><path d="M24 14v32M24 24l6-5M24 31l-6-5" stroke="#ecebe7" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="g-slice" viewBox="0 0 48 48"><rect x="6" y="14" width="36" height="26" rx="3" fill="#38450f"/><path d="M6 20h36" stroke="#ecebe7" stroke-width="2.5"/><circle cx="16" cy="29" r="2" fill="#ecebe7"/><circle cx="26" cy="32" r="2" fill="#ecebe7"/><circle cx="33" cy="26" r="2" fill="#ecebe7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="currentColor"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a class="mark" href="#top" aria-label="Thimble Oven, home"><i></i>Thimble Oven</a>
+  <nav aria-label="Main"><ul>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#trays">Oven times</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#visit">Hours &amp; visit</a></li>
+    <li><a href="#catering">Catering</a></li>
+  </ul></nav>
+  <a class="btn" href="tel:+16175550182"><svg aria-hidden="true"><use href="#i-phone"/></svg>Order ahead</a>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="card">
+    <div class="stripes" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="card-body">
+      <h1 id="h1">Thimble<br>Oven</h1>
+      <p class="lede">Bakery and coffee counter in Roslindale Village. One small deck oven, fresh trays all morning.</p>
+      <div class="actions">
+        <a class="btn" href="tel:+16175550182"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to order ahead</a>
+        <a class="btn ghost" href="#menu">See the menu</a>
+      </div>
+      <div class="status" id="status" aria-live="polite">
+        <div class="status-line"><span class="dot" aria-hidden="true"></span><span id="status-text">Tue–Fri 6:30 AM–3 PM · Sat 7–3 · Sun 7–1</span></div>
+        <div class="next" id="next-text">Croissants out at 6:30, focaccia at 10:30.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="oven" aria-hidden="true">
+    <svg viewBox="0 0 800 900" preserveAspectRatio="xMidYMax slice">
+      <rect width="800" height="900" fill="#38450f"/>
+      <!-- the oven's mouth: the page's one shape -->
+      <path d="M40 900V470a360 360 0 0 1 720 0v430z" fill="#2d380b"/>
+      <path d="M110 900V500a290 290 0 0 1 580 0v400z" fill="#252e08"/>
+      <path class="glow" d="M170 900V560a230 230 0 0 1 460 0v340z" fill="#3f2a0a"/>
+      <path class="glow-2" d="M240 900V640a160 160 0 0 1 320 0v260z" fill="#8a5418"/>
+      <path class="glow" d="M300 900V700a100 100 0 0 1 200 0v200z" fill="#e7a640"/>
+      <path d="M350 900V752a50 50 0 0 1 100 0v148z" fill="#f3cf73"/>
+      <!-- oven floor and loaves -->
+      <rect x="110" y="800" width="580" height="100" fill="#1c2306"/>
+      <g fill="#d9c49a">
+        <ellipse cx="230" cy="800" rx="78" ry="42"/>
+        <ellipse cx="400" cy="796" rx="86" ry="48"/>
+        <ellipse cx="570" cy="800" rx="78" ry="42"/>
+      </g>
+      <g stroke="#8f6a2e" stroke-width="7" stroke-linecap="round" fill="none">
+        <path d="M195 790l24-22M228 798l26-24"/>
+        <path d="M352 784c30-14 66-14 96 0"/>
+        <path d="M535 790l24-22M568 798l26-24"/>
+      </g>
+      <!-- the peel -->
+      <rect x="380" y="836" width="40" height="64" fill="#a77a3c"/>
+      <path d="M300 836h200l-18 18H318z" fill="#c19253"/>
+    </svg>
+    <p class="oven-tag" id="oven-tag"><b id="oven-time">5:00</b>The oven is lit at five every morning it opens.</p>
+  </div>
+</section>
+
+<section class="sec wrap" id="menu" aria-labelledby="menu-h">
+  <div class="sec-head rise">
+    <h2 id="menu-h">The menu</h2>
+    <p>Baked on Belgrade Ave every morning. Meals tax is added at the register.</p>
+  </div>
+  <div class="filters" role="toolbar" aria-label="Filter the menu by category">
+    <button type="button" aria-pressed="true" data-f="all">All</button>
+    <button type="button" aria-pressed="false" data-f="coffee">Coffee<span>8</span></button>
+    <button type="button" aria-pressed="false" data-f="tea">Tea &amp; more<span>5</span></button>
+    <button type="button" aria-pressed="false" data-f="pastry">Pastry<span>8</span></button>
+    <button type="button" aria-pressed="false" data-f="bread">Bread<span>6</span></button>
+    <button type="button" aria-pressed="false" data-f="fall">Fall menu<span>5</span></button>
+  </div>
+  <div id="menu-list"></div>
+  <p class="menu-note">Oat, almond and whole milk at no charge. Ask at the counter about nuts, dairy and gluten; everything shares one oven and one bench.</p>
+</section>
+
+<section class="band" id="trays" aria-labelledby="trays-h">
+  <div class="band-top">
+    <h2 id="trays-h" class="rise">Out of the oven today</h2>
+    <p class="rise" style="--d:80ms">One oven means one tray at a time. These are the bakes, in order; the highlighted one is next out.</p>
+  </div>
+  <ol class="trays" id="tray-list"></ol>
+</section>
+
+<section class="sec wrap" id="story" aria-labelledby="story-h">
+  <div class="story">
+    <div class="story-art rise" aria-hidden="true">
+      <svg viewBox="0 0 400 560" preserveAspectRatio="xMidYMax slice">
+        <!-- two-storey Roslindale block, the shop on the ground floor -->
+        <rect width="400" height="560" fill="#4a5a1a"/>
+        <g fill="#252e08">
+          <path d="M70 230V120a30 30 0 0 1 60 0v110z"/><path d="M170 230V120a30 30 0 0 1 60 0v110z"/><path d="M270 230V120a30 30 0 0 1 60 0v110z"/>
+        </g>
+        <g fill="#c9cdb4"><rect x="98" y="96" width="4" height="134"/><rect x="198" y="96" width="4" height="134"/><rect x="298" y="96" width="4" height="134"/><rect x="70" y="168" width="60" height="4"/><rect x="170" y="168" width="60" height="4"/><rect x="270" y="168" width="60" height="4"/></g>
+        <rect x="0" y="250" width="400" height="14" fill="#38450f"/>
+        <rect x="24" y="264" width="352" height="296" fill="#38450f"/>
+        <rect x="24" y="264" width="352" height="44" fill="#252e08"/>
+        <text x="200" y="294" text-anchor="middle" font-family="Stack Sans Headline, sans-serif" font-size="22" fill="#ecebe7" letter-spacing="1">THIMBLE OVEN · 48</text>
+        <rect x="24" y="308" width="352" height="34" fill="#ecebe7"/>
+        <g fill="#38450f"><rect x="24" y="308" width="22" height="34"/><rect x="68" y="308" width="22" height="34"/><rect x="112" y="308" width="22" height="34"/><rect x="156" y="308" width="22" height="34"/><rect x="200" y="308" width="22" height="34"/><rect x="244" y="308" width="22" height="34"/><rect x="288" y="308" width="22" height="34"/><rect x="332" y="308" width="22" height="34"/></g>
+        <path d="M24 342h352l-6 12H30z" fill="#252e08"/>
+        <path d="M48 545V440a76 76 0 0 1 152 0v105z" fill="#252e08"/>
+        <path d="M88 545V474a36 36 0 0 1 72 0v71z" fill="#e7a640"/>
+        <path d="M107 545V500a17 17 0 0 1 34 0v45z" fill="#f3cf73"/>
+        <rect x="48" y="508" width="152" height="10" fill="#a77a3c"/>
+        <g fill="#d9c49a"><ellipse cx="78" cy="506" rx="18" ry="9"/><ellipse cx="124" cy="504" rx="20" ry="11"/><ellipse cx="170" cy="506" rx="18" ry="9"/></g>
+        <path d="M236 560V420a54 54 0 0 1 108 0v140z" fill="#252e08"/>
+        <path d="M248 560V424a42 42 0 0 1 84 0v136z" fill="#4a5a1a"/>
+        <path d="M264 490V432a26 26 0 0 1 52 0v58z" fill="#e7a640"/>
+        <circle cx="320" cy="520" r="5" fill="#d9c49a"/>
+        <rect x="0" y="545" width="400" height="15" fill="#1c2306"/>
+      </svg>
+    </div>
+    <div>
+      <h2 id="story-h" class="rise">A bakery the size of a thimble</h2>
+      <p class="lead rise" style="--d:80ms">Thimble Oven is 340 square feet, one deck oven and a counter with six stools, two doors down from Roslindale Square.</p>
+      <div class="story-cols">
+        <div class="rise" style="--d:140ms">
+          <h3>Small on purpose</h3>
+          <p>The oven holds one tray at a time, so we bake little and often. Croissants come out at 6:30, bread at 8, focaccia late morning. When a tray sells out, the next one is usually forty minutes away.</p>
+        </div>
+        <div class="rise" style="--d:200ms">
+          <h3>Coffee to match</h3>
+          <p>Espresso from a small roaster in Somerville, pulled on a two-group machine. Drip is brewed in small pots so it never sits. Bring a mug and we take fifty cents off.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="visit" aria-labelledby="visit-h">
+  <div class="sec-head rise">
+    <h2 id="visit-h">Hours and how to find us</h2>
+    <p>Closed Mondays, when the oven gets cleaned and the flour order comes in.</p>
+  </div>
+  <div class="visit">
+    <div class="hours-panel rise">
+      <p class="now" id="now-big">Open Tuesday to Sunday</p>
+      <p class="now-sub" id="now-sub">Times shown in Boston time.</p>
+      <table>
+        <caption class="sr">Opening hours</caption>
+        <tbody id="hours-body">
+          <tr data-day="1"><th scope="row">Monday</th><td>Closed</td></tr>
+          <tr data-day="2"><th scope="row">Tuesday</th><td>6:30 AM – 3 PM</td></tr>
+          <tr data-day="3"><th scope="row">Wednesday</th><td>6:30 AM – 3 PM</td></tr>
+          <tr data-day="4"><th scope="row">Thursday</th><td>6:30 AM – 3 PM</td></tr>
+          <tr data-day="5"><th scope="row">Friday</th><td>6:30 AM – 3 PM</td></tr>
+          <tr data-day="6"><th scope="row">Saturday</th><td>7 AM – 3 PM</td></tr>
+          <tr data-day="0"><th scope="row">Sunday</th><td>7 AM – 1 PM</td></tr>
+        </tbody>
+      </table>
+      <p class="addr">48 Belgrade Ave<br>Roslindale, MA 02131<br><a href="tel:+16175550182">(617) 555-0182</a></p>
+      <div class="actions">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=48+Belgrade+Ave+Roslindale+MA+02131" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a>
+        <a class="btn ghost" href="tel:+16175550182"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+      </div>
+    </div>
+    <div class="map rise" style="--d:100ms" role="img" aria-label="Street map: Thimble Oven is on Belgrade Avenue, just west of Roslindale Square and Adams Park, a short walk from the Roslindale Village commuter rail stop.">
+      <svg viewBox="0 0 600 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="600" height="620" fill="#d6d3ca"/>
+        <!-- blocks -->
+        <g fill="#cbc7bc">
+          <path d="M0 0h230l-60 170L0 230z"/><path d="M300 0h300v190L360 250l-40-90z"/><path d="M0 300l170-60 40 110-40 270H0z"/><path d="M260 420l60-60 280 30v230H230z"/>
+        </g>
+        <!-- Adams Park -->
+        <path d="M218 268l84-32 40 92-92 40z" fill="#9ea77a"/>
+        <!-- streets -->
+        <g fill="none" stroke="#ecebe7" stroke-linecap="round">
+          <path d="M268 -20L300 236l42 92 30 312" stroke-width="30"/>
+          <path d="M-20 266L218 268" stroke-width="26"/>
+          <path d="M342 328L640 236" stroke-width="22"/>
+          <path d="M250 368l-60 280" stroke-width="22"/>
+          <path d="M250 -20l-32 288" stroke-width="16"/>
+        </g>
+        <!-- rail -->
+        <path d="M-20 120C160 170 420 140 640 60" fill="none" stroke="#5d683a" stroke-width="6" stroke-dasharray="14 10"/>
+        <rect x="404" y="112" width="44" height="22" rx="11" fill="#5d683a"/>
+        <g font-family="Stack Sans Text, sans-serif" font-size="20" fill="#38450f" font-weight="500">
+          <text x="70" y="306">Belgrade Ave</text>
+          <text x="390" y="304" transform="rotate(-17 390 304)">South St</text>
+          <text x="350" y="470" transform="rotate(84 350 470)">Washington St</text>
+          <text x="232" y="306" transform="rotate(-22 232 306)" font-size="17">Adams Park</text>
+          <text x="300" y="186">Roslindale Village stop</text>
+          <text x="236" y="90" transform="rotate(-84 236 90)">Poplar St</text>
+        </g>
+        <!-- the pin, in the oven's shape -->
+        <g transform="translate(150 196)">
+          <path d="M0 64V24a24 24 0 0 1 48 0v40z" fill="#38450f"/>
+          <path d="M14 64V36a10 10 0 0 1 20 0v28z" fill="#e7a640"/>
+          <rect x="-58" y="-52" width="164" height="42" rx="21" fill="#38450f"/>
+          <text x="24" y="-24" text-anchor="middle" font-family="Stack Sans Text, sans-serif" font-size="20" font-weight="600" fill="#ecebe7">Thimble Oven</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="catering" aria-labelledby="cat-h">
+  <div class="sec-head rise">
+    <h2 id="cat-h">Catering and big orders</h2>
+    <p>Two days' notice for most orders. Pick up at the counter, or we deliver within two miles.</p>
+  </div>
+  <div class="coupon rise" id="coupon">
+    <div class="coupon-left">
+      <h2 style="font-size:inherit" class="sr">Order form</h2>
+      <p style="font-family:var(--display);font-weight:300;font-size:clamp(2rem,1.2rem + 2.4vw,3.25rem);line-height:1.05;letter-spacing:-0.025em">Feed the office, or the whole street</p>
+      <ul>
+        <li>Pastry box for 12, $54</li>
+        <li>Coffee to go, 96 oz with cups, $32</li>
+        <li>Focaccia sheet, cut in 24, $22</li>
+        <li>Whole loaves and birthday orders by request</li>
+      </ul>
+    </div>
+    <form id="order-form" novalidate>
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required placeholder="Jo Murphy"></div>
+      <div class="field"><label for="f-contact">Email or phone</label><input id="f-contact" name="contact" autocomplete="email" required placeholder="jo@example.com"></div>
+      <div class="field"><label for="f-date">Date needed</label><input id="f-date" name="date" type="date" required></div>
+      <div class="field"><label for="f-size">How many people</label>
+        <select id="f-size" name="size"><option>Up to 12</option><option>13 to 30</option><option>31 to 60</option><option>More than 60</option></select></div>
+      <div class="field wide"><label for="f-msg">What you have in mind</label><textarea id="f-msg" name="msg" placeholder="Two pastry boxes and coffee for a 9 AM meeting"></textarea></div>
+      <button class="btn submit" type="submit">Send the order request</button>
+      <div class="thanks" id="thanks" hidden tabindex="-1"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer aria-labelledby="foot-h">
+  <h2 id="foot-h" class="sr">Thimble Oven</h2>
+  <div class="blocks" aria-hidden="true">
+    <div class="row" style="--n:7"><span style="--b:82%">T</span><span style="--b:100%">H</span><span style="--b:70%">I</span><span style="--b:92%">M</span><span style="--b:76%">B</span><span style="--b:96%">L</span><span style="--b:66%">E</span></div>
+    <div class="row" style="--n:4"><span style="--b:88%">O</span><span style="--b:72%">V</span><span style="--b:100%">E</span><span style="--b:80%">N</span></div>
+  </div>
+  <div class="foot-grid">
+    <div><h3>Eat</h3><ul><li><a href="#menu">Menu</a></li><li><a href="#trays">Oven times</a></li><li><a href="#catering">Catering</a></li></ul></div>
+    <div><h3>Visit</h3><ul><li><a href="#visit">Hours</a></li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=48+Belgrade+Ave+Roslindale+MA+02131" target="_blank" rel="noopener">Directions</a></li><li><a href="#story">Our story</a></li></ul></div>
+    <div><h3>Hours</h3><ul><li>Tue–Fri 6:30–3</li><li>Sat 7–3</li><li>Sun 7–1</li></ul></div>
+    <div><h3>Pay</h3><ul><li>Cards and cash</li><li>Tap to pay</li><li>Mug discount 50¢</li></ul></div>
+    <div class="contact"><h3>Find us</h3><address>48 Belgrade Ave, Roslindale, MA 02131<br><a href="tel:+16175550182">(617) 555-0182</a></address></div>
+  </div>
+  <div class="foot-last">
+    <p>Thimble Oven is a fictional bakery. This is a <a href="https://kai-wicke-portfolio.vercel.app/web-design">sample site by Kai Wicke</a>.</p>
+    <a class="btn light" href="#top" style="min-height:44px">Back to top</a>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn light" href="tel:+16175550182"><svg aria-hidden="true"><use href="#i-phone"/></svg>Order ahead</a>
+  <a class="btn" style="background:var(--field-input)" href="https://www.google.com/maps/search/?api=1&amp;query=48+Belgrade+Ave+Roslindale+MA+02131" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var MENU = [
+    {id:'coffee', name:'Coffee', g:'cup', items:[
+      ['Drip coffee','$3.25 / $3.75','Brewed in small pots all day, never more than twenty minutes old.'],
+      ['Espresso','$3.50','A double shot of the house blend: chocolate, plum, a little smoke.'],
+      ['Cortado','$4.50','Equal parts espresso and steamed milk, in a small glass.'],
+      ['Cappuccino','$5.00','Eight ounces, a proper cap of foam.'],
+      ['Latte','$5.50','Twelve ounces. Add vanilla or cardamom syrup for 75¢.'],
+      ['Maple cortado','$5.25','With a spoon of Vermont maple stirred into the milk.'],
+      ['Cold brew','$5.25','Steeped eighteen hours. Served all year, ice optional in winter.'],
+      ['Mocha','$6.00','Espresso, steamed milk and melted dark chocolate.']]},
+    {id:'tea', name:'Tea and more', g:'tea', items:[
+      ['Pot of loose tea','$4.25','English breakfast, Earl Grey, sencha or chamomile, for one or two.'],
+      ['Chai latte','$5.50','Our own spice mix, simmered in the morning.'],
+      ['Matcha latte','$6.00','Ceremonial matcha whisked to order, hot or iced.'],
+      ['Hot chocolate','$4.75','Dark chocolate melted into whole milk. Kids size $3.'],
+      ['Fresh orange juice','$5.00','Squeezed at the counter, ten ounces.']]},
+    {id:'pastry', name:'Pastry', g:'croissant', items:[
+      ['Butter croissant','$4.25','Three days from dough to tray. First out at 6:30.','croissant'],
+      ['Almond croissant','$5.50','Yesterday’s croissant, filled with frangipane and baked again.','croissant','Contains nuts'],
+      ['Pain au chocolat','$4.75','Two bars of dark chocolate in croissant dough.','croissant'],
+      ['Cardamom morning bun','$5.00','Rolled in cardamom sugar and orange zest. Our best seller.','bun'],
+      ['Maple-oat scone','$4.25','Rolled oats, brown butter and a maple glaze.','scone'],
+      ['Ham and gruyère danish','$6.50','Savory, with Dijon and black pepper. Good with a cortado.','croissant'],
+      ['Brown-butter cookie','$3.50','Chocolate chunks and flaky salt. Out at 11:45.','cookie'],
+      ['Banana bread slice','$4.00','Topped with seeds and demerara. Gluten-free on Saturdays.','slice']]},
+    {id:'bread', name:'Bread', g:'loaf', items:[
+      ['Country sourdough','$10','Two-day ferment, dark crust. Out at 8:00, often gone by noon.'],
+      ['Seeded rye','$11','Rye, sunflower and flax. Slices thin, keeps a week.'],
+      ['Baguette','$4.50','Two bakes a day, 8:00 and 1:00.'],
+      ['Rosemary focaccia','$4.50 slice / $22 sheet','Olive oil, sea salt, rosemary from the window box. Out at 10:30.','slice'],
+      ['Brioche loaf','$9','For French toast at home. Friday to Sunday.'],
+      ['Sandwich bread','$8','A soft white pan loaf, sliced to order.']]},
+    {id:'fall', name:'Fall menu', g:'leaf', items:[
+      ['Apple cider donut','$3.25','Baked, not fried, rolled in cinnamon sugar. Weekends only.','donut'],
+      ['Pumpkin cardamom latte','$6.25','Roasted pumpkin, our chai spice and a double shot.','cup'],
+      ['Cranberry-orange scone','$4.50','With a thin orange glaze. Through New Year’s.','scone'],
+      ['Pear and frangipane tart','$6.00','Bosc pears from a farm in Harvard, MA.','leaf','Contains nuts'],
+      ['Hot spiced cider','$4.50','Local cider simmered with clove and orange peel.','tea']]}
+  ];
+  var list = document.getElementById('menu-list');
+  var html = '';
+  MENU.forEach(function(c){
+    html += '<div class="cat" data-cat="'+c.id+'"><div class="cat-head rise"><h3>'+c.name+'</h3><span>'+c.items.length+' items</span></div><ul class="items">';
+    c.items.forEach(function(it, i){
+      var g = it[3] || c.g;
+      html += '<li class="item rise" style="--d:'+(i%2*70)+'ms"><span class="glyph" aria-hidden="true"><svg><use href="#g-'+g+'"/></svg></span><div><div class="item-top"><b>'+it[0]+'</b><em>'+it[1]+'</em></div><p>'+it[2]+'</p>'+(it[4]?'<small>'+it[4]+'</small>':'')+'</div></li>';
+    });
+    html += '</ul></div>';
+  });
+  list.innerHTML = html;
+
+  var btns = document.querySelectorAll('.filters button');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.dataset.f;
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      document.querySelectorAll('.cat').forEach(function(c){ c.hidden = !(f === 'all' || c.dataset.cat === f); });
+      var top = document.getElementById('menu').querySelector('.filters').getBoundingClientRect().top;
+      if (top < 40) document.getElementById('menu-h').scrollIntoView({block:'start'});
+    });
+  });
+
+  /* ---- time, in Boston ---- */
+  var HOURS = {0:[420,780],1:null,2:[390,900],3:[390,900],4:[390,900],5:[390,900],6:[420,900]};
+  var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var TRAYS = [
+    [390,'Butter croissants','and pain au chocolat'],
+    [435,'Cardamom morning buns','about 30 a tray'],
+    [480,'Country sourdough','and the first baguettes'],
+    [555,'Maple-oat scones','plus the fall scone'],
+    [630,'Rosemary focaccia','sold by the slice'],
+    [705,'Brown-butter cookies','still soft at noon']
+  ];
+  function fmt(m){ var h=Math.floor(m/60), mm=m%60, ap=h>=12?'PM':'AM', hh=h%12||12; return hh+(mm?':'+String(mm).padStart(2,'0'):'')+' '+ap; }
+  function clock(m){ var h=Math.floor(m/60), mm=m%60; return (h%12||12)+':'+String(mm).padStart(2,'0'); }
+  function nowNY(){
+    var q = new URLSearchParams(location.search).get('at');
+    if (q && /^\d-\d{1,2}:\d{2}$/.test(q)) { var p=q.split(/[-:]/); return {day:+p[0], min:+p[1]*60+ +p[2]}; }
+    var parts = new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date());
+    var o={}; parts.forEach(function(p){o[p.type]=p.value;});
+    return {day:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday), min:(+o.hour%24)*60 + +o.minute};
+  }
+  function traysFor(day){
+    var h = HOURS[day]; if(!h) return [];
+    return TRAYS.filter(function(t){ return t[0] < h[1]; }).map(function(t){ return [Math.max(t[0],h[0]), t[1], t[2]]; });
+  }
+  function nextOpening(n){
+    for (var i=0;i<8;i++){
+      var d=(n.day+i)%7, h=HOURS[d];
+      if (!h) continue;
+      if (i===0 && n.min >= h[0]) continue;
+      var when = i===0 ? 'today' : i===1 ? 'tomorrow' : DAYS[d];
+      return {day:d, at:h[0], when:when};
+    }
+  }
+  function render(){
+    var n = nowNY(), h = HOURS[n.day];
+    var open = !!h && n.min >= h[0] && n.min < h[1];
+    var st = document.getElementById('status'), stText = document.getElementById('status-text'), nx = document.getElementById('next-text');
+    var big = document.getElementById('now-big'), sub = document.getElementById('now-sub');
+    st.classList.toggle('is-open', open);
+    var trays = traysFor(n.day), next = null;
+    if (open) { next = trays.filter(function(t){ return t[0] > n.min; })[0] || null; }
+    var no = nextOpening(n);
+    if (open) {
+      var left = h[1]-n.min;
+      stText.textContent = 'Open now · until ' + fmt(h[1]);
+      big.textContent = left <= 45 ? 'Open, closing in ' + left + ' min' : 'Open now, until ' + fmt(h[1]);
+      if (next) {
+        var mins = next[0]-n.min;
+        nx.textContent = 'Next out of the oven: ' + next[1].toLowerCase() + ' at ' + fmt(next[0]) + ' (in ' + mins + ' min).';
+      } else {
+        nx.textContent = 'Last tray is out. What is on the counter is it until tomorrow.';
+      }
+      sub.textContent = 'Times shown in Boston time. Call ahead and we hold a tray for you.';
+    } else {
+      var w = no.when === 'today' ? 'at ' + fmt(no.at) : (no.when === 'tomorrow' ? 'tomorrow at ' : no.when + ' at ') + (no.when==='today'?'':fmt(no.at));
+      stText.textContent = 'Closed · opens ' + w;
+      big.textContent = 'Closed, opens ' + w;
+      nx.textContent = 'First tray: butter croissants, ready at opening.';
+      sub.textContent = 'Times shown in Boston time. Leave a message and we call back when the oven is lit.';
+    }
+    // oven tag
+    var ot = document.getElementById('oven-time'), tag = document.getElementById('oven-tag');
+    if (open && next) { ot.textContent = clock(next[0]); tag.lastChild.textContent = 'Next tray: ' + next[1].toLowerCase() + '.'; }
+    else if (open) { ot.textContent = 'All out'; tag.lastChild.textContent = 'Every tray for today has been baked.'; }
+    else { ot.textContent = '5:00'; tag.lastChild.textContent = 'The oven is lit at five, ' + (no.when==='today'?'this morning':no.when==='tomorrow'?'tomorrow morning':'on ' + no.when) + '.'; }
+    // hours table
+    document.querySelectorAll('#hours-body tr').forEach(function(tr){ tr.classList.toggle('today', +tr.dataset.day === n.day); });
+    // tray band: today's schedule, or the next open day's
+    var showDay = h ? n.day : no.day, list = traysFor(showDay);
+    var ol = document.getElementById('tray-list'), out = '';
+    list.forEach(function(t){
+      var cls = '', note = t[2];
+      if (showDay === n.day && open) {
+        if (t[0] <= n.min) { cls = 'done'; note = 'Out at ' + fmt(t[0]); }
+        else if (next && t[0] === next[0]) { cls = 'next'; note = 'Next out, in ' + (t[0]-n.min) + ' min'; }
+      } else if (showDay === n.day && h && n.min >= h[1]) { cls = 'done'; }
+      out += '<li class="tray '+cls+'"><time>'+clock(t[0])+'</time><div><b>'+t[1]+'</b><span>'+note+'</span></div></li>';
+    });
+    ol.innerHTML = out;
+    document.getElementById('trays-h').textContent = (showDay === n.day ? 'Out of the oven today' : 'Out of the oven ' + (no.when === 'tomorrow' ? 'tomorrow' : 'on ' + DAYS[showDay]));
+  }
+  render();
+  setInterval(function(){ if (!document.hidden) render(); }, 30000);
+
+  /* ---- catering form, front end only ---- */
+  var form = document.getElementById('order-form'), thanks = document.getElementById('thanks');
+  var d = document.getElementById('f-date'); var t = new Date(Date.now() + 2*864e5); d.min = t.toISOString().slice(0,10);
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var name = (form.name.value || '').trim().split(' ')[0] || 'there';
+    thanks.innerHTML = '<b>Thanks, ' + name.replace(/[<>&"]/g,'') + '. Nothing was sent.</b>This is a sample site for a made-up bakery, so the form stops here. On a real client site it would go straight to the owner’s inbox.<br><button type="button" id="again">Fill it in again</button>';
+    thanks.hidden = false; thanks.focus();
+    form.querySelector('.submit').hidden = true;
+    document.getElementById('again').addEventListener('click', function(){ form.reset(); thanks.hidden = true; form.querySelector('.submit').hidden = false; form.name.focus(); });
+  });
+
+  /* ---- coupon notch position on phones ---- */
+  var coupon = document.getElementById('coupon');
+  function cut(){ var l = coupon.querySelector('.coupon-left'); coupon.style.setProperty('--cut', (l.offsetHeight) + 'px'); }
+  cut(); addEventListener('resize', cut);
+
+  /* ---- entrances ---- */
+  var els = document.querySelectorAll('.rise');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+})();
+</script>
+</body>
+</html>
