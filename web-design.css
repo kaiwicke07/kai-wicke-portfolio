@@ -77,3 +77,7 @@
 @media (max-width: 720px) {
   .wd-list, .wd-prices, .wd-steps, .wd-proof, .wd-samples { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 720px) {
+  .bar-links a[href="#start"], .bar-links a[href="/#work"], .bar-links a[href="#pricing"] { display: none; }
+}

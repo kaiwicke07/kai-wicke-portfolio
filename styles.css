@@ -173,7 +173,9 @@ main {
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
-  .bar-links a[href^="mailto"] { display: none; }
+  .bar-links a[href^="mailto"], .bar-links a[href="#about"], .bar-links a[href="#work"] { display: none; }
+  .bar-links { gap: 16px; }
+  .bar-name, .bar-links a { white-space: nowrap; }
   .about { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
