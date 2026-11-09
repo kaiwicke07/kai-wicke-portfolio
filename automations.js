@@ -255,4 +255,31 @@
   });
   document.getElementById("inbox-reset").addEventListener("click", () => { ownEl.value = ""; runBtn.textContent = "Sort the inbox"; resetInbox(); });
   resetInbox();
+  /* ---------- Tabs: one demo at a time ---------- */
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function select(tab, focus) {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute("aria-controls"));
+      panel.hidden = !on;
+      if (on) { panel.classList.remove("is-in"); void panel.offsetWidth; panel.classList.add("is-in"); }
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => select(t));
+    t.addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+
+  /* ---------- Section entrances ---------- */
+  document.documentElement.classList.add("js");
+  const io = "IntersectionObserver" in window && new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("is-seen"); io.unobserve(en.target); } });
+  }, { rootMargin: "0px 0px -12% 0px" });
+  document.querySelectorAll(".reveal").forEach((s) => (io ? io.observe(s) : s.classList.add("is-seen")));
 })();

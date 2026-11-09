@@ -3,59 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automations for small businesses · Kai Wicke</title>
-    <meta name="description" content="I build automations that answer leads, cut no-shows and sort your inbox, so the busywork runs itself. Try three working demos. Fixed prices from $300." />
-    <meta name="theme-color" content="#1c1c1c" />
-    <meta property="og:title" content="Automations for small businesses" />
-    <meta property="og:description" content="Leads answered in seconds, fewer no-shows, an inbox that sorts itself. Try the demos." />
+    <title>Kai Wicke · Automations for small businesses</title>
+    <meta name="description" content="I'm Kai, a student in Boston. I set up automations for small businesses: leads answered, booking reminders sent, inboxes sorted. Fixed prices from $95." />
+    <meta name="theme-color" content="#e2e2e2" />
+    <meta property="og:title" content="Kai Wicke · Automations for small businesses" />
+    <meta property="og:description" content="Leads answered, reminders sent, inboxes sorted. Fixed prices from $95. Try the demos." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/og.jpg" />
-
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23f1f1ef'%3EKW%3C/text%3E%3C/svg%3E" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%237d0c14'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23e2e2e2'%3EKW%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="web-design.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="automations.css" />
   </head>
   <body>
-    <header class="bar">
-      <a class="bar-name" href="/">Kai Wicke</a>
-      <nav class="bar-links" aria-label="Main">
-        <a href="/#work">Work</a>
-        <a href="/automations" aria-current="page">Automations</a>
-        <a href="#demos">Demos</a>
-        <a href="#pricing">Pricing</a>
+    <header class="hero">
+      <figure class="hero-photo">
+        <img src="assets/mission-hill-boston-entrance.jpg" width="1920" height="1277" alt="Tremont Street in Mission Hill, Boston: shops, a bus and the Mission Church towers up the hill" fetchpriority="high" />
+      </figure>
+      <nav class="hero-nav" aria-label="Main">
+        <a href="/">Portfolio</a>
+        <a href="#try">Demos</a>
+        <a href="#prices">Prices</a>
+        <a href="#contact">Contact</a>
       </nav>
+      <div class="hero-band">
+        <div class="hero-row">
+          <p class="hero-line">I set up automations for small businesses, so leads get answered, reminders go out and the inbox sorts itself. Fixed prices from $95.</p>
+          <a class="button" href="#contact">Email me a task</a>
+        </div>
+        <h1 class="hero-name"><span class="sr">Kai Wicke, automations for small businesses</span><span aria-hidden="true">Kai Wicke</span></h1>
+      </div>
     </header>
 
-    <main id="top">
-      <section class="intro">
-        <h1>Busywork that runs itself.</h1>
-        <p>I build automations for small businesses: leads answered in seconds, fewer no-shows, an inbox that sorts itself. Fixed price, working in a week.</p>
-        <p class="wd-actions">
-          <a class="wd-button" href="#demos">Try the demos</a>
-          <a class="wd-link" href="#start">Tell me what eats your time</a>
-        </p>
-      </section>
+    <main>
+      <section class="try reveal" id="try" aria-labelledby="try-title">
+        <div class="try-head">
+          <h2 id="try-title">Try three jobs I build</h2>
+          <p>Each one runs here in your browser on a sample business. The real version runs on the tools you already pay for, like Gmail, Google Sheets, Square or Calendly.</p>
+        </div>
 
-      <section class="wd-section" id="demos" aria-labelledby="demos-title">
-        <h2 id="demos-title">Three demos you can run</h2>
-        <p class="wd-lead">Each one runs right here in your browser on a made-up business. The real version connects to the tools you already use.</p>
+        <div class="tabs" role="tablist" aria-label="Demos">
+          <button role="tab" id="tab-lead" aria-controls="panel-lead" aria-selected="true">A new lead</button>
+          <button role="tab" id="tab-noshow" aria-controls="panel-noshow" aria-selected="false" tabindex="-1">Tomorrow's bookings</button>
+          <button role="tab" id="tab-inbox" aria-controls="panel-inbox" aria-selected="false" tabindex="-1">This morning's inbox</button>
+        </div>
 
         <!-- Demo 1: lead catcher -->
-        <article class="demo" id="lead-demo" aria-labelledby="lead-title">
-          <header class="demo-head">
-            <p class="demo-num">01</p>
-            <div>
-              <h3 id="lead-title">Lead catcher</h3>
-              <p>A new enquiry gets checked, logged and answered before the owner has seen it. Hot leads text the owner. <span class="demo-biz">Brightside Home Cleaning, a made-up cleaning company.</span></p>
-            </div>
-          </header>
-          <div class="demo-body">
-            <form class="demo-panel lead-form" id="lead-form">
-              <p class="panel-label">Website form</p>
+        <div class="panel" role="tabpanel" id="panel-lead" aria-labelledby="tab-lead">
+          <p class="panel-intro">A cleaning company's website form. Send it, and the lead is checked, logged, priced and answered before the owner has looked at their phone. <span class="soft">Sample business: Brightside Home Cleaning.</span></p>
+          <div class="stage">
+            <form class="ui-card lead-form" id="lead-form" data-ui>
+              <p class="ui-title">Get a cleaning quote</p>
               <label>Name <input name="name" value="Dana Ruiz" required autocomplete="off"></label>
               <label>Email <input name="email" type="email" value="dana.ruiz@example.com" required autocomplete="off"></label>
               <div class="row2">
@@ -86,183 +85,164 @@
                 </label>
               </div>
               <label>Message <textarea name="msg" rows="2">Moving out Saturday, need it spotless for the deposit.</textarea></label>
-              <button class="demo-run" type="submit">Send enquiry</button>
+              <button class="button" type="submit">Send enquiry</button>
             </form>
-            <div class="demo-panel demo-out" aria-live="polite">
-              <p class="panel-label">What happens next</p>
-              <ol class="steps" id="lead-steps"><li class="idle">Send the form to watch it run.</li></ol>
-              <div class="sheet-wrap">
-                <p class="panel-label">Leads sheet</p>
-                <table class="sheet" id="lead-sheet">
-                  <thead><tr><th>Time</th><th>Name</th><th>Job</th><th>Quote</th><th>Score</th></tr></thead>
-                  <tbody>
-                    <tr><td>9:12</td><td>M. Okafor</td><td>Standard, 3 bed</td><td>$180-210</td><td><span class="tag warm">Warm</span></td></tr>
-                    <tr><td>10:47</td><td>J. Chen</td><td>Deep, 1 bed</td><td>$170-200</td><td><span class="tag cold">Cold</span></td></tr>
-                  </tbody>
-                </table>
+            <div class="result" aria-live="polite">
+              <ol class="steps" id="lead-steps"><li class="idle">Send the form to watch what happens.</li></ol>
+              <div class="ui-sheet" data-ui>
+                <p class="sheet-name">Leads · Google Sheets</p>
+                <div class="sheet-scroll">
+                  <table class="sheet" id="lead-sheet">
+                    <thead><tr><th>Time</th><th>Name</th><th>Job</th><th>Quote</th><th>Score</th></tr></thead>
+                    <tbody>
+                      <tr><td>9:12</td><td>M. Okafor</td><td>Standard, 3 bed</td><td>$180-210</td><td><span class="tag warm">Warm</span></td></tr>
+                      <tr><td>10:47</td><td>J. Chen</td><td>Deep, 1 bed</td><td>$170-200</td><td><span class="tag cold">Cold</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-          <p class="demo-real"><strong>Real version:</strong> your site form or Facebook lead ads → Google Sheets or your CRM → a reply from your own Gmail or Outlook → a text to your phone. Replying within 5 minutes instead of hours is the cheapest way to win more jobs.</p>
-        </article>
+          <p class="panel-real">For you, this would mean your site form or Facebook lead ads, then Google Sheets or your CRM, then a reply from your own Gmail or Outlook, then a text to your phone. Answering in five minutes instead of five hours is the cheapest way to win more jobs.</p>
+        </div>
 
         <!-- Demo 2: no-show saver -->
-        <article class="demo" id="noshow-demo" aria-labelledby="noshow-title">
-          <header class="demo-head">
-            <p class="demo-num">02</p>
-            <div>
-              <h3 id="noshow-title">No-show saver</h3>
-              <p>Reminders go out on their own, replies update the book, and a cancelled slot is offered to the waitlist automatically. <span class="demo-biz">Quarter Hour Barbers, a made-up barbershop.</span></p>
-            </div>
-          </header>
-          <div class="demo-body">
-            <div class="demo-panel">
-              <p class="panel-label">Tomorrow's book</p>
+        <div class="panel" role="tabpanel" id="panel-noshow" aria-labelledby="tab-noshow" hidden>
+          <p class="panel-intro">A barbershop's book for tomorrow. Reminders go out on their own, replies update the book, and a cancelled chair is offered to the waitlist. <span class="soft">Sample business: Quarter Hour Barbers.</span></p>
+          <div class="stage">
+            <div class="ui-card" data-ui>
+              <p class="ui-title">Tomorrow</p>
               <ul class="book" id="book"></ul>
-              <p class="panel-label waitlist-label">Waitlist</p>
+              <p class="ui-title ui-sub">Waitlist</p>
               <ul class="waitlist" id="waitlist"></ul>
-              <div class="demo-controls">
-                <button class="demo-run" id="noshow-next" type="button">Tonight, 6 PM: send reminders</button>
-                <button class="demo-reset" id="noshow-reset" type="button">Reset</button>
+              <div class="controls">
+                <button class="button" id="noshow-next" type="button">Tonight, 6 PM: send reminders</button>
+                <button class="button-quiet" id="noshow-reset" type="button">Start over</button>
               </div>
             </div>
-            <div class="demo-panel demo-out" aria-live="polite">
-              <p class="panel-label">Texts and actions</p>
+            <div class="result" aria-live="polite">
               <ol class="feed" id="noshow-feed"><li class="idle">Press the button to move through the day.</li></ol>
               <p class="tally" id="noshow-tally" hidden></p>
             </div>
           </div>
-          <p class="demo-real"><strong>Real version:</strong> reads your Square, Booksy, Calendly or Google Calendar bookings, sends texts through Twilio, and writes changes straight back to the calendar.</p>
-        </article>
+          <p class="panel-real">For you, this reads bookings from Square, Booksy, Calendly or Google Calendar, sends the texts through Twilio, and writes every change back to your calendar.</p>
+        </div>
 
         <!-- Demo 3: inbox sorter -->
-        <article class="demo" id="inbox-demo" aria-labelledby="inbox-title">
-          <header class="demo-head">
-            <p class="demo-num">03</p>
-            <div>
-              <h3 id="inbox-title">Inbox sorter</h3>
-              <p>Every email gets read and sent where it belongs: bills into a table with the amount and due date, leads to the sales list, questions get a drafted answer. <span class="demo-biz">A made-up landscaping company's inbox.</span></p>
-            </div>
-          </header>
-          <div class="demo-body">
-            <div class="demo-panel">
-              <p class="panel-label">Inbox</p>
+        <div class="panel" role="tabpanel" id="panel-inbox" aria-labelledby="tab-inbox" hidden>
+          <p class="panel-intro">A landscaper's inbox. Every email is read and sent where it belongs: bills into a sheet with the amount and due date, quote requests to the lead list, questions get a drafted reply. <span class="soft">Sample business: a landscaping company.</span></p>
+          <div class="stage">
+            <div class="ui-card" data-ui>
+              <p class="ui-title">Inbox</p>
               <ul class="inbox" id="inbox"></ul>
-              <label class="own">Or paste any email
+              <label class="own">Or paste an email of your own
                 <textarea id="own-email" rows="3" placeholder="Hi, can you quote for weekly mowing at 14 Elm St? Need it from May."></textarea>
               </label>
-              <div class="demo-controls">
-                <button class="demo-run" id="inbox-run" type="button">Sort the inbox</button>
-                <button class="demo-reset" id="inbox-reset" type="button">Reset</button>
+              <div class="controls">
+                <button class="button" id="inbox-run" type="button">Sort the inbox</button>
+                <button class="button-quiet" id="inbox-reset" type="button">Start over</button>
               </div>
             </div>
-            <div class="demo-panel demo-out" aria-live="polite">
-              <p class="panel-label">Sorted</p>
+            <div class="result" aria-live="polite">
               <div class="bins" id="bins"><p class="idle">Press "Sort the inbox".</p></div>
             </div>
           </div>
-          <p class="demo-real"><strong>Real version:</strong> uses an AI model (Claude) to read messy, real-world emails, with fixed rules as a safety net, then files bills to QuickBooks or a sheet and leads to your CRM. This demo uses simple rules so it can run in your browser.</p>
-        </article>
-      </section>
-
-      <section class="wd-section" aria-labelledby="tools-title">
-        <h2 id="tools-title">Works with what you already use</h2>
-        <ul class="tools">
-          <li>Gmail &amp; Outlook</li><li>Google Sheets</li><li>Airtable</li><li>HubSpot</li><li>Square</li><li>Shopify</li><li>Calendly</li><li>Stripe</li><li>Twilio SMS</li><li>Slack</li><li>Zapier, Make, n8n</li><li>Claude &amp; OpenAI</li>
-        </ul>
-        <p class="wd-note">If a tool has an API or an export, it can almost certainly be connected. If it can't, I'll tell you before you pay anything.</p>
-      </section>
-
-      <section class="wd-section" id="pricing" aria-labelledby="pricing-title">
-        <h2 id="pricing-title">Pricing</h2>
-        <div class="wd-prices">
-          <article class="wd-price">
-            <h3>Quick fix</h3>
-            <p class="wd-amount">$300</p>
-            <ul>
-              <li>One small automation, e.g. form → sheet → email</li>
-              <li>Connected to your accounts</li>
-              <li>Done in 3 days</li>
-            </ul>
-          </article>
-          <article class="wd-price is-featured">
-            <h3>Workflow</h3>
-            <p class="wd-amount">$750</p>
-            <ul>
-              <li>A full system like the demos above</li>
-              <li>AI where it actually helps, rules where it doesn't</li>
-              <li>A short video showing how it works</li>
-              <li>Live in a week, two weeks of free fixes</li>
-            </ul>
-          </article>
-          <article class="wd-price">
-            <h3>Care</h3>
-            <p class="wd-amount">$75<span>/month</span></p>
-            <ul>
-              <li>I watch it and fix anything that breaks</li>
-              <li>Small changes whenever you ask</li>
-              <li>Cancel any time</li>
-            </ul>
-          </article>
+          <p class="panel-real">For you, an AI model (Claude) reads the messy real emails, with fixed rules as a safety net, then files bills to QuickBooks or a sheet and leads to your CRM. This demo uses simple rules so it can run in your browser.</p>
         </div>
-        <p class="wd-note">Half up front, half when it's working on your real data. Software subscriptions (if any are needed) are paid directly by you, and I'll keep them to the free tiers where I can.</p>
       </section>
 
-      <section class="wd-section" aria-labelledby="how-title">
-        <h2 id="how-title">How it works</h2>
-        <ol class="wd-steps">
-          <li>
-            <h3>Tell me the annoying part</h3>
-            <p>A few lines on what you do by hand every week and which tools you use. I'll reply with a plan and a fixed price.</p>
-          </li>
-          <li>
-            <h3>I build it on test data</h3>
-            <p>You see it working on examples first, so nothing touches your real customers until you're happy.</p>
-          </li>
-          <li>
-            <h3>Switch it on</h3>
-            <p>We connect it to your real accounts, and you get a short video showing how it works and how to turn it off.</p>
-          </li>
-        </ol>
+      <section class="mine reveal" aria-labelledby="mine-title">
+        <figure class="mine-shot">
+          <img src="assets/life-os.jpg" width="2880" height="1800" alt="Kai's Life OS dashboard: today's tasks, calendar, classes and a Gmail panel sorted by importance" loading="lazy" />
+        </figure>
+        <div class="mine-text">
+          <h2 id="mine-title">The one I run on myself</h2>
+          <p>Life OS is my own automation setup. Every morning it sorts my Gmail by what actually needs a reply, pulls in my calendar and class deadlines from Canvas, and reads me a short briefing out loud. It runs every day, and when it breaks I'm the one who notices, so I build everything with an alert when a step fails.</p>
+          <p><a href="/life-os">How Life OS works</a></p>
+        </div>
       </section>
 
-      <section class="wd-section" aria-labelledby="who-title">
-        <h2 id="who-title">Who's building it</h2>
-        <p class="wd-lead">I'm Kai, a Mechanical Engineering student at Northeastern in Boston. I build software with AI tools every day. Some of it:</p>
-        <ul class="wd-proof">
-          <li><a href="/life-os"><strong>Life OS</strong><span>My own automation hub: email sorted by importance, calendar, classes and a spoken briefing</span></a></li>
-          <li><a href="https://chess-ai-nu.vercel.app" target="_blank" rel="noopener"><strong>chess.ai</strong><span>A chess training app with bots and an AI coach</span></a></li>
-          <li><a href="https://swingiq-seven.vercel.app" target="_blank" rel="noopener"><strong>SwingIQ</strong><span>Golf swing analysis with pose tracking in the browser</span></a></li>
-          <li><a href="/web-design"><strong>Websites</strong><span>Sites for Boston small businesses</span></a></li>
-        </ul>
+      <section class="letter reveal" aria-label="About me">
+        <img class="letter-face" src="assets/headshot.jpg" width="600" height="600" alt="Kai Wicke" loading="lazy" />
+        <p>Hi, I'm Kai. I study Mechanical Engineering at Northeastern and live in Mission Hill, a few minutes up Tremont Street from the photo at the top.</p>
+        <p>I build software most days: a chess trainer with an AI coach, a golf swing analyzer that runs in the browser, a finite element solver, and the dashboard above. Before that I worked at Ole Factorie Candles in Oakland, where I ran events, handled orders for big clients and built the company website. I've seen what a small team does by hand at the end of a long day.</p>
+        <figure class="letter-work">
+          <img src="assets/chess-play.jpg" width="1920" height="1200" alt="chess.ai: playing a bot, with the coach pointing out a blunder" loading="lazy" />
+          <img src="assets/swingiq-app.jpg" width="2880" height="1880" alt="SwingIQ: a golf swing with pose tracking drawn over it" loading="lazy" />
+          <img src="assets/fea-solver.jpg" width="1920" height="1200" alt="The finite element solver showing stress in a bracket" loading="lazy" />
+          <figcaption>chess.ai, SwingIQ and the FEA solver, all live on my portfolio.</figcaption>
+        </figure>
+        <p>I'm new to selling this, not new to building it. That's why my prices are below what most US freelancers charge: I'd rather earn my first ten reviews by doing good work cheaply than wait for them.</p>
+        <p>You'll deal with me the whole way. I reply within a few hours, US Eastern time, and nothing touches your real customers until you've seen it work.</p>
+        <p class="sign">Kai Wicke</p>
+        <p class="sign-role">Boston, MA</p>
       </section>
 
-      <section class="wd-section wd-faq" aria-labelledby="faq-title">
-        <h2 id="faq-title">Questions</h2>
-        <details>
-          <summary>Is my customer data safe?</summary>
-          <p>It stays in your own accounts. Automations run on your Google, Microsoft or Zapier account or on a server in your name, and I use the narrowest access each step needs. When the job is done you can remove my access.</p>
-        </details>
-        <details>
-          <summary>What if it breaks?</summary>
-          <p>Every build sends you an alert when something fails, and the first two weeks of fixes are free. After that, the care plan covers it, or fixes are $40 each.</p>
-        </details>
-        <details>
-          <summary>Do I need to pay for AI?</summary>
-          <p>Often not. Most of the work is plain rules. Where AI helps, it usually costs a few dollars a month on your own account.</p>
-        </details>
-        <details>
-          <summary>Do I own it?</summary>
-          <p>Yes. Everything is built in your accounts, and you get the setup notes and any code.</p>
-        </details>
+      <section class="prices reveal" id="prices" aria-labelledby="prices-title">
+        <div class="prices-side">
+          <h2 id="prices-title">Prices</h2>
+          <p>Fixed, agreed before I start. Half up front, half once it's working on your real data.</p>
+          <p class="soft">Starter prices until I have ten reviews. Paid tools like Zapier or Twilio run on your own account at cost, and I use free tiers where they're enough.</p>
+        </div>
+        <div class="menu">
+          <div class="menu-group">
+            <h3>Builds</h3>
+            <dl>
+              <div class="item"><dt>Fix a broken automation</dt><dd class="price">$95</dd><dd class="desc">A Zap, Make scenario or script that stopped working. Includes the diagnosis and up to an hour of fixing.</dd></div>
+              <div class="item"><dt>One automation</dt><dd class="price">250</dd><dd class="desc">One workflow of 3 to 5 steps, like form to sheet to email. Tested, with a short video.</dd></div>
+              <div class="item"><dt>Lead follow-up</dt><dd class="price">550</dd><dd class="desc">Form to sheet or CRM, an instant reply with a price, a text to you for hot leads.</dd></div>
+              <div class="item"><dt>Booking reminders</dt><dd class="price">550</dd><dd class="desc">Texts before each booking, replies update the calendar, open slots go to the waitlist.</dd></div>
+              <div class="item"><dt>AI inbox sorter</dt><dd class="price">750</dd><dd class="desc">Emails read and filed; bills, leads and questions pulled into a sheet with drafted replies.</dd></div>
+            </dl>
+          </div>
+          <div class="menu-group">
+            <h3>After it's built</h3>
+            <dl>
+              <div class="item"><dt>Fixes for 30 days</dt><dd class="price">Free</dd><dd class="desc">Anything that breaks or needs a tweak in the first month.</dd></div>
+              <div class="item"><dt>Care plan</dt><dd class="price">$150<span>/mo</span></dd><dd class="desc">I watch up to three automations, fix breaks, reconnect logins and make an hour of changes a month. Cancel any time.</dd></div>
+              <div class="item"><dt>Anything else</dt><dd class="price">$40<span>/hr</span></dd><dd class="desc">Work that doesn't fit a box. I'll quote the hours before I start.</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="how reveal" aria-labelledby="how-title">
+        <h2 id="how-title">How a job goes</h2>
+        <p><strong>To begin,</strong> you email me a few lines about what you do by hand every week and which tools you use. I reply the same day with a plan and a fixed price, or tell you honestly that it isn't worth automating.</p>
+        <p><strong>Within a week,</strong> I build it and run it on sample data, then send you a short screen recording of it working. Nothing touches your real customers yet.</p>
+        <p><strong>When you're happy,</strong> we connect it to your real accounts together, and you get written notes on how it works and how to switch it off.</p>
+        <p><strong>From then on,</strong> it sends me an alert if a step fails. Fixes are free for 30 days, and after that the care plan covers them.</p>
+      </section>
+
+      <section class="faq reveal" aria-labelledby="faq-title">
+        <div class="qa"><h2 id="faq-title">Questions</h2></div>
+        <div class="qa"><h3>Is my customer data safe?</h3><p>It stays in your own accounts. Everything runs on your Google, Microsoft or Zapier account, with only the access each step needs, and you can remove my access the day we finish.</p></div>
+        <div class="qa"><h3>What tools do you work with?</h3><p>Zapier, Make and n8n; Gmail, Outlook and Google Sheets; Airtable, HubSpot, Square, Shopify, Calendly, Stripe, Twilio and Slack; Claude and OpenAI when a step needs reading or writing. If a tool has an API or an export, it can usually be connected. If it can't, I'll say so before you pay.</p></div>
+        <div class="qa"><h3>Do I have to pay for AI?</h3><p>Usually not. Most of the work is plain rules. Where AI helps, it costs a few dollars a month on your own account.</p></div>
+        <div class="qa"><h3>Do I own what you build?</h3><p>Yes. It's built in your accounts, and you get the notes and any code.</p></div>
+        <div class="qa"><h3>Can we hire you on Upwork?</h3><p>Yes, if you'd rather pay through Upwork's protection. Email me and I'll send the link, at the same prices.</p></div>
       </section>
     </main>
 
-    <footer class="footer" id="start">
-      <h2>What eats your time every week?</h2>
-      <p>Email me a few lines about it. I'll reply with a plan and a fixed price, free.</p>
-      <p><a class="footer-email" href="mailto:Kaiwicke07@gmail.com?subject=Automation%20idea&amp;body=My%20business%3A%20%0AWhat%20I%20do%20by%20hand%20every%20week%3A%20%0ATools%20I%20use%3A%20">Kaiwicke07@gmail.com</a></p>
-      <p class="footer-small">Kai Wicke · Boston, MA · &copy; 2026</p>
+    <footer class="end" id="contact">
+      <div class="end-cols">
+        <div>
+          <h2>Tell me what eats your week</h2>
+          <p>A few lines is plenty. You'll get a plan and a fixed price back, free.</p>
+          <p><a class="button button-light" href="mailto:Kaiwicke07@gmail.com?subject=Automation%20idea&amp;body=My%20business%3A%20%0AWhat%20I%20do%20by%20hand%20every%20week%3A%20%0ATools%20I%20use%3A%20">Email Kaiwicke07@gmail.com</a></p>
+        </div>
+        <ul>
+          <li><a href="/">Portfolio</a></li>
+          <li><a href="/web-design">Websites</a></li>
+          <li><a href="https://github.com/kaiwicke07" rel="noopener">GitHub</a></li>
+        </ul>
+        <ul>
+          <li>Boston, MA</li>
+          <li>Replies within a few hours, US Eastern</li>
+        </ul>
+      </div>
+      <p class="end-name" aria-hidden="true">Kai Wicke</p>
+      <p class="end-small">© 2026 Kai Wicke. Top photo: "Mission Hill Boston entrance" by Tim Pierce, CC BY 3.0, via Wikimedia Commons.</p>
     </footer>
 
     <script src="automations.js" defer></script>
