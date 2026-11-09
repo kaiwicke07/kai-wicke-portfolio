@@ -159,7 +159,7 @@ main > section { padding: 0 var(--margin); margin-top: var(--gap); }
 .sheet th { background: var(--ui-head); color: var(--ui-soft); font-weight: 500; }
 .sheet tr.is-new td { animation: row-in 1.8s ease-out; }
 @keyframes row-in { from { background: #fff3c4; } }
-.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 13px; font-weight: 600; }
+.tag { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 600; }
 .tag.hot { background: #fce8e6; color: #a50e0e; }
 .tag.warm { background: #fef7e0; color: #8a5a00; }
 .tag.cold { background: var(--ui-head); color: var(--ui-soft); }
@@ -169,11 +169,11 @@ main > section { padding: 0 var(--margin); margin-top: var(--gap); }
 .book, .waitlist, .inbox { list-style: none; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); }
 .book li, .waitlist li {
   display: grid; grid-template-columns: 4.2em 1fr auto; gap: 10px; align-items: center;
-  padding: 10px 0; border-top: 1px solid var(--ui-line); font-size: 15px; /* taste-skill-ignore: rows of a real booking list (data-ui) */
+  padding: 12px 4px; border-top: 1px solid var(--ui-line); font-size: 15px; /* taste-skill-ignore: rows of a real booking list (data-ui) */
 }
 .waitlist li { grid-template-columns: 1fr auto; }
 .book-time { color: var(--ui-soft); font-variant-numeric: tabular-nums; }
-.status { font-size: 13px; font-weight: 600; padding: 3px 9px; border-radius: 10px; background: var(--ui-head); color: var(--ui-soft); white-space: nowrap; }
+.status { font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 12px; background: var(--ui-head); color: var(--ui-soft); white-space: nowrap; }
 .status.confirmed { background: #e6f4ea; color: #137333; }
 .status.moved { background: #fef7e0; color: #8a5a00; }
 .status.cancelled { background: #fce8e6; color: #a50e0e; }
@@ -182,7 +182,7 @@ main > section { padding: 0 var(--margin); margin-top: var(--gap); }
 .tally { margin-top: 24px; font-size: var(--t-lead); line-height: 1.45; }
 
 /* Inbox */
-.inbox li { padding: 10px 0; border-top: 1px solid var(--ui-line); font-size: 14px; transition: opacity 0.3s; } /* taste-skill-ignore: rows of a real inbox (data-ui) */
+.inbox li { padding: 12px 4px; border-top: 1px solid var(--ui-line); font-size: 14px; transition: opacity 0.3s; } /* taste-skill-ignore: rows of a real inbox (data-ui) */
 .inbox .from { font-weight: 600; display: block; }
 .inbox .subj { display: block; }
 .inbox .snip { display: block; color: var(--ui-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
